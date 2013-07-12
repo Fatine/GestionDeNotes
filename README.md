@@ -21,6 +21,10 @@ Fonctionnalités demandées :
 
 
 Références :
-
 création formulaire inscription sans la validation :
 http://www.pensons-web.com/actualite/codeigniter-mise-en-place-dun-formulaire-dinscription-1ere-partie/
+
+Problèmes :
+   - Dans connexion : pour la même démarche qu'avec "pas encore inscrit" et "identifiants oublies", le lien "aide" ne marche pas
+
+
