@@ -81,15 +81,15 @@
 		    </p>
 		    </fieldset>
 		    <p>
-			<?php echo form_submit('submit', 'Connexion'); ?>
+			<?php echo form_submit('connecter', 'Connexion'); ?>
 		    </p>
 			<?php form_close(); ?>
-		    <a href="./inscription.php">Pas encore inscrit ?</a>
+		    <a href="index.php/inscription">Pas encore inscrit ?</a>
 		    <p><a href="./identifiantsOublies.php">Identifiants oubliés ?</a></p>
-		    <p>Besoin d\'aide ?<a href="user_guide/">User Guide</a>.</p>
+		    <p><a href="index.php/aide">Besoin d'aide ?</a></p>
 		    </div>
 		    </body>
-		    </html>';
+		    </html>
 	</div>
 	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds</p>
 </div>
