@@ -18,3 +18,9 @@ Fonctionnalités demandées :
    - imprimer un relevé de notes pour un étudiant, contenant toutes ses ues passées avec la moyenne pour chacune
    - imprimer tout les relevé des notes des étudiants
    - imprimer un PV pour chaque UE, avec tout les étudiants inscrits à l'UE, et leurs notes et moyennes
+
+
+Références :
+
+création formulaire inscription sans la validation :
+http://www.pensons-web.com/actualite/codeigniter-mise-en-place-dun-formulaire-dinscription-1ere-partie/
