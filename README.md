@@ -3,10 +3,9 @@ GestionDeNotes
 
 Ce que je suis en train de faire :
    - Quand j'appuie sur le bouton connexion, je veux aller sur la page d'accueil
-   - Idem pour pas encore enregistré vers inscription
+   - Idem pour pas encore enregistré vers inscription OK
 
 Ce qu'il faut faire (pas dans l'ordre):
-   - Créer une aide pour le site
    - Créer une aide pour utiliser le site
    - Créer la base de donnée (non encore configurée)
    - Créer un compte pour Gerald Delabre, un pour Stephane Pillet, un pour Fatna Merrouche 
@@ -19,12 +18,10 @@ Fonctionnalités demandées :
    - imprimer tout les relevé des notes des étudiants
    - imprimer un PV pour chaque UE, avec tout les étudiants inscrits à l'UE, et leurs notes et moyennes
 
-
 Références :
 création formulaire inscription sans la validation :
 http://www.pensons-web.com/actualite/codeigniter-mise-en-place-dun-formulaire-dinscription-1ere-partie/
 
 Problèmes :
    - Dans connexion : pour la même démarche qu'avec "pas encore inscrit" et "identifiants oublies", le lien "aide" ne marche pas
-
 
