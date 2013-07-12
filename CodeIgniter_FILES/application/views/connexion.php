@@ -85,7 +85,7 @@
 		    </p>
 			<?php form_close(); ?>
 		    <a href="index.php/inscription">Pas encore inscrit ?</a>
-		    <p><a href="./identifiantsOublies.php">Identifiants oubliés ?</a></p>
+		    <p><a href="index.php/identifiantsOublies">Identifiants oubliés ?</a></p>
 		    <p><a href="index.php/aide">Besoin d'aide ?</a></p>
 		    </div>
 		    </body>
