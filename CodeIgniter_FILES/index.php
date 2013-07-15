@@ -18,7 +18,14 @@
  * NOTE: If you change these, also change the error_reporting() code below
  *
  */
-	define('ENVIRONMENT', 'development');
+define('ENVIRONMENT', 'development');
+
+/**
+ * (ennitao) Some errors (like parse errors !) won't display without
+ * this line.
+ */
+ini_set("display_errors", "1");
+
 /*
  *---------------------------------------------------------------
  * ERROR REPORTING
@@ -35,7 +42,7 @@ if (defined('ENVIRONMENT'))
 		case 'development':
 			error_reporting(E_ALL);
 		break;
-	
+
 		case 'testing':
 		case 'production':
 			error_reporting(0);
@@ -84,7 +91,8 @@ if (defined('ENVIRONMENT'))
  * specific controller class/function here.  For most applications, you
  * WILL NOT set your routing here, but it's an option for those
  * special instances where you might want to override the standard
- * routing in a specific front controller that shares a common CI installation.
+ * routing in a specific front controller that shares a common CI
+ * installation.
  *
  * IMPORTANT:  If you set the routing here, NO OTHER controller will be
  * callable. In essence, this preference limits your application to ONE
@@ -94,8 +102,9 @@ if (defined('ENVIRONMENT'))
  * Un-comment the $routing array below to use this feature
  *
  */
-	// The directory name, relative to the "controllers" folder.  Leave blank
-	// if your controller is not in a sub-folder within the "controllers" folder
+    // The directory name, relative to the "controllers" folder. Leave
+    // blank if your controller is not in a sub-folder within the
+    // "controllers" folder.
 	// $routing['directory'] = '';
 
 	// The controller class file name.  Example:  Mycontroller
@@ -151,7 +160,9 @@ if (defined('ENVIRONMENT'))
 	// Is the system path correct?
 	if ( ! is_dir($system_path))
 	{
-		exit("Your system folder path does not appear to be set correctly. Please open the following file and correct this: ".pathinfo(__FILE__, PATHINFO_BASENAME));
+        exit("Your system folder path does not appear to be set correctly.
+            Please open the following file and correct this: " .
+            pathinfo(__FILE__, PATHINFO_BASENAME));
 	}
 
 /*

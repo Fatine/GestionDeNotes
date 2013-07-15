@@ -1,4 +1,11 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php
+if ( ! defined( 'BASEPATH' ) ) exit( 'No direct script access allowed' );
+
+/**
+ * (ennitao) Seems that the db config is loaded before the generic config.
+ */
+require './custom_config/profile_switcher.php';
+
 /*
 | -------------------------------------------------------------------
 | DATABASE CONNECTIVITY SETTINGS
@@ -28,8 +35,8 @@
 |	['dbcollat'] The character collation used in communicating with the database
 |				 NOTE: For MySQL and MySQLi databases, this setting is only used
 | 				 as a backup if your server is running PHP < 5.2.3 or MySQL < 5.0.7
-|				 (and in table creation queries made with DB Forge).
-| 				 There is an incompatibility in PHP with mysql_real_escape_string() which
+|				 ( and in table creation queries made with DB Forge ).
+| 				 There is an incompatibility in PHP with mysql_real_escape_string( ) which
 | 				 can make your site vulnerable to SQL injection if you are using a
 | 				 multi-byte character set and are running versions lower than these.
 | 				 Sites using Latin-1 or UTF-8 database character set and collation are unaffected.
@@ -39,14 +46,13 @@
 |							- good for ensuring strict SQL while developing
 |
 | The $active_group variable lets you choose which connection group to
-| make active.  By default there is only one group (the 'default' group).
+| make active.  By default there is only one group ( the 'default' group ).
 |
 | The $active_record variables lets you determine whether or not to load
 | the active record class
 */
 
-$active_group = 'default';
-$active_record = TRUE;
+$active_group = $config['config_profile'];
 
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = '';
@@ -64,6 +70,23 @@ $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
 
+// ennitao -------------------------
+$db['ennitao']['hostname'] = 'localhost';
+$db['ennitao']['username'] = 'ci-user';
+$db['ennitao']['password'] = 'ci';
+$db['ennitao']['database'] = 'ci-gdn-dev';
+$db['ennitao']['dbdriver'] = 'mysqli';
+$db['ennitao']['dbprefix'] = '';
+$db['ennitao']['pconnect'] = TRUE;
+$db['ennitao']['db_debug'] = TRUE;
+$db['ennitao']['cache_on'] = FALSE;
+$db['ennitao']['cachedir'] = '';
+$db['ennitao']['char_set'] = 'utf8';
+$db['ennitao']['dbcollat'] = 'utf8_general_ci';
+$db['ennitao']['swap_pre'] = '';
+$db['ennitao']['autoinit'] = TRUE;
+$db['ennitao']['stricton'] = FALSE;
+// ennitao -------------------------
 
 /* End of file database.php */
 /* Location: ./application/config/database.php */
