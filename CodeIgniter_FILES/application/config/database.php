@@ -4,7 +4,7 @@ if ( ! defined( 'BASEPATH' ) ) exit( 'No direct script access allowed' );
 /**
  * (ennitao) Seems that the db config is loaded before the generic config.
  */
-require './custom_config/profile_switcher.php';
+require 'custom_config/profile_switcher.php';
 
 /*
 | -------------------------------------------------------------------
@@ -87,6 +87,26 @@ $db['ennitao']['swap_pre'] = '';
 $db['ennitao']['autoinit'] = TRUE;
 $db['ennitao']['stricton'] = FALSE;
 // ennitao -------------------------
+
+
+//fatine ---------------------------
+$db['fatine']['hostname'] = 'localhost';
+$db['fatine']['username'] = 'root';
+$db['fatine']['password'] = 'root';
+$db['fatine']['database'] = 'GestionDeNotes';
+$db['fatine']['dbdriver'] = 'mysql';
+$db['fatine']['dbprefix'] = '';
+$db['fatine']['pconnect'] = TRUE;
+$db['fatine']['db_debug'] = TRUE;
+$db['fatine']['cache_on'] = FALSE;
+$db['fatine']['cachedir'] = '';
+$db['fatine']['char_set'] = 'utf8';
+$db['fatine']['dbcollat'] = 'utf8_general_ci';
+$db['fatine']['swap_pre'] = '';
+$db['fatine']['autoinit'] = TRUE;
+$db['fatine']['stricton'] = FALSE;
+//fatine ---------------------------
+
 
 /* End of file database.php */
 /* Location: ./application/config/database.php */

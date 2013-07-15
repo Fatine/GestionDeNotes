@@ -13,8 +13,9 @@ $chemin_suffixe = 'GestionDeNotes/CodeIgniter_FILES';
 $chemin_ennitao = '/home/antoine/lampstack-5.4.16-0/apache2/htdocs/';
 $chemin_ennitao = $chemin_ennitao . $chemin_suffixe;
 
-$chemin_fatine = '';
+$chemin_fatine = '/var/www/';
 $chemin_fatine = $chemin_fatine . $chemin_suffixe;
+
 if( getcwd( ) == $chemin_ennitao )
 {
     $config['config_profile'] = 'ennitao';

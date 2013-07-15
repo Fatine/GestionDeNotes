@@ -1,6 +1,8 @@
 <?php
 if ( !defined( 'BASEPATH' ) ) exit( 'No direct script access allowed' );
 
+require 'custom_config/profile_switcher.php';
+
 /*
 |--------------------------------------------------------------------------
 | Website details
@@ -8,8 +10,18 @@ if ( !defined( 'BASEPATH' ) ) exit( 'No direct script access allowed' );
 | These details are used in emails sent by authentication library.
 |--------------------------------------------------------------------------
 */
-$config['website_name'] = 'Your project';
-$config['webmaster_email'] = 'antoine.patel@yahoo.fr';
+
+$config['website_name'] = 'FDV - Open Grades Manager';
+
+if( $config['config_profile'] == 'ennitao' ){
+    $config['webmaster_email'] = 'antoine.patel@yahoo.fr';
+}
+else if( $config['config_profile'] == 'fatine' ){
+    $config['webmaster_email'] = 'fatine.nakkoubi@outlook.fr';
+}
+else{
+    $config['webmaster_email'] = '';
+}
 
 /*
 |--------------------------------------------------------------------------
@@ -42,7 +54,7 @@ $config['phpass_hash_strength'] = 8;
 */
 $config['allow_registration'] = TRUE;
 $config['captcha_registration'] = FALSE;
-$config['email_activation'] = TRUE;
+$config['email_activation'] = FALSE;
 $config['email_activation_expire'] = 60*60*24*2;
 $config['email_account_details'] = TRUE;
 $config['use_username'] = TRUE;
