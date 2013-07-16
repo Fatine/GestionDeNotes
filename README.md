@@ -1,5 +1,6 @@
 GestionDeNotes
 ==============
+Date mise à jour : 16/07/2013
 
 Ce que je suis en train de faire :
    - En train d'essayer de faire la pagination (controller/lists.php, view/homepage.php) : souci : affichage de toutes les données sur chaque page
@@ -8,6 +9,7 @@ Ce que je suis en train de faire :
    - Idem pour pas encore enregistré vers inscription OK
 
 Ce qu'il faut faire (pas dans l'ordre):
+   - !! Au lieu de mettre ajouter supprimer modifier etc..., afficher automatiquement les tableau avec tout (etudiants, ou ue,...) et mettre des boutons supprimer, modifier, editer ?
    - Créer une aide pour utiliser le site
    - Créer la base de donnée (non encore configurée)
    - Créer un compte pour Gerald Delabre, un pour Stephane Pillet, un pour Fatna Merrouche 
