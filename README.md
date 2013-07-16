@@ -2,6 +2,7 @@ GestionDeNotes
 ==============
 
 Ce que je suis en train de faire :
+   - En train d'essayer de faire la pagination (controller/lists.php, view/homepage.php) : souci : affichage de toutes les données sur chaque page
    - Module user en anglais : en cours de developpement, pour des tests
    - Quand j'appuie sur le bouton connexion, je veux aller sur la page d'accueil
    - Idem pour pas encore enregistré vers inscription OK
