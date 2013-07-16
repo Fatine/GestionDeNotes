@@ -1,15 +1,5 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-/**
- * Users
- *
- * This model represents user authentication data. It operates the following tables:
- * - user account data,
- * - user profiles
- *
- * @package	Tank_auth
- * @author	Ilya Konyukhov (http://konyukhov.com/soft/)
- */
 class Lists extends CI_Controller
 {
 
@@ -20,15 +10,8 @@ class Lists extends CI_Controller
 		$this->load->library("pagination");
 	}
 
-	/**
-	 * (fatine)
-	 *
-	 * Get all users
-	 *
-	 * @return object
-	 */
+//list of users
 	function list_users(){
-	
 	 	$this->db->select('username')->from('users')->order_by("username","ASC"); 
 	 	$query = $this->db->get();
       	if ($query->num_rows() > 0){	
@@ -37,19 +20,18 @@ class Lists extends CI_Controller
 	 		}
 		 }
 	 	echo $this->pagination->create_links(); 
-	
+		echo '<p><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/" title="Retour"-->Retour<!--/a--></p>';
 	}	
 
+//list of courses
+function list_courses(){
+	 	
+		echo '<p><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/" title="Retour"-->Retour<!--/a--></p>';
+	}	
 
-/*
-		$this->db->select('username')->from('users'); $query = $this->db->get();
-		// affichage		
-		foreach ($query->result() as $row){ echo '<p>'.$row->username.'</p>'; }
+//list of grades
+function grades_course(){
 
-		if ($query->num_rows() == 1) return $query->row();
-		return NULL;*/
-
+		echo '<p><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/" title="Retour"-->Retour<!--/a--></p>';
+	}
 }
-
-/* End of file users.php */
-/* Location: ./application/models/auth/users.php */

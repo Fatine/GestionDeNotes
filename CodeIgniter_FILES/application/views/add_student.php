@@ -66,12 +66,34 @@
 </head>
 <body>
 
-<div id="container">
-	Hi, <strong><?php echo $username; ?></strong>! You are logged in now. <?php echo anchor('/auth/logout/', 'Logout'); echo '<br/>';?>
-		
-		<p><a href="students">Gérer les étudiants</a></p>
-		<p><a href="courses">Gérer les unités d'enseignement</a></p>
-</div>
+	<h2> Modifier votre profil </ h2>
+	<?php 
+	
+	echo '<br/>';
+	echo '<br/>';
+	echo '<br/>';
+	echo form_open('profil');
+	
+	echo form_label ('Civilité : ', 'title');
+	echo form_input ($title); 
+	echo '<br/>';
+	
+	echo form_label ('Votre nom', 'lastname');
+	echo form_input ($lastname);
+	echo '<br/>';
+
+	echo form_label ('Votre prénom', 'firstname');
+	echo form_input ($firstname);
+	echo '<br/>';
+	
+	echo form_label ('Votre e-mail ',' email ');
+	echo form_input ($email);
+	echo '<br/>';
+
+
+//	echo form_submit ('submit', 'Envoyer');
+	echo form_close ();
+	?>
 
 </body>
 </html>

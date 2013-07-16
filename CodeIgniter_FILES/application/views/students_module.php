@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,12 +66,42 @@
 	</style>
 </head>
 <body>
+<h1>Gérer les étudiants</h1>
+<h5><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/" title="Retour"-->Retour à l'accueil</a></h5>
 
-<div id="container">
-	Hi, <strong><?php echo $username; ?></strong>! You are logged in now. <?php echo anchor('/auth/logout/', 'Logout'); echo '<br/>';?>
-		
-		<p><a href="students">Gérer les étudiants</a></p>
-		<p><a href="courses">Gérer les unités d'enseignement</a></p>
+<div id="content">
+<TABLE BORDER="1"> 
+  <CAPTION> Tableau des étudiants </CAPTION> 
+  <TR> 
+ <TH width="100px"> N° étudiant </TH> 
+ <TH width="100px"> Nom </TH> 
+ <TH width="100px"> Prénom </TH>
+  </TR> 
+<?php
+	$query = $this->db->query('SELECT * FROM students');
+	foreach ($query->result() as $row){
+	   echo '<TR>';
+	   echo '  <TD>'.$row->lastname.'</TD>';
+	   echo '  <TD>'.$row->firstname.'</TD>';
+	   echo '  <TD>'.$row->diploma.'</TD>';
+	   echo '</TR>';
+	}
+?> 
+</TABLE> 
+
+
+<p>
+<ul>
+<li><a href="modify/add_student/">Ajouter un étudiant</a></li>
+<li><a href="modify/modify_student/">Modifier un étudiant</a></li>
+<li><a href="modify/delete_student/">Supprimer un étudiant</a></li>
+</ul>
+</p>
+<p>
+<ul>
+<li><a href="lists/grades_student/">Voir les notes d'un étudiant</a></li>
+</ul>
+</p>
 </div>
 
 </body>
