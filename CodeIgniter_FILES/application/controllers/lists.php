@@ -13,13 +13,8 @@ class Lists extends CI_Controller
 
 //ordering
 	function order(){
-		$order = array(
-				 'tableName'=>$_POST['tableName'],
-				 'order'=>$_POST['order'],
-		 		 'AscDesc'=>$_POST['AscDesc'],
-		 		 );
-			 //Insert
-			 $query=$this->bdd->order('tableName',$order); 
+
+			 $query=$this->bdd->order($_POST['tableName'],$_POST['orders'], $_POST['AscDesc']); 
 			 
 			 $data['title']='';
 			 $data['lastname']='';

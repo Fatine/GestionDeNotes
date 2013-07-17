@@ -22,7 +22,7 @@ class Modify extends CI_Controller
 				 'email'=>$_POST['email'],
 		 		 );
 			 //Insert
-			 $this->bdd->add('students',$newUser); 
+			 $this->bdd->add($_POST['tableName'],$newUser); 
     			 $this->load->view('submitted');
  		}else{
  			echo '<p>Echec de l\'enregistrement</p>';

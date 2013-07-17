@@ -79,6 +79,7 @@
  <TH width="100px"> email </TH>
   </TR> 
 <?php
+
 	foreach ($query->result() as $row){
 	   echo '<TR >';
 	   echo '  <TD align="center">'.$row->lastname.'</TD>';
@@ -93,10 +94,10 @@
 </TABLE>
 <?php
 	
-	$order = array(
-		 'byLastname'=>'Par Nom',
-		 'byFirstname'=>'Par Prénom',
-		 'byDiploma'=>'Par Diplôme',
+	$orders = array(
+		 'lastname'=>'Par Nom',
+		 'firstname'=>'Par Prénom',
+		 'email'=>'Par Email',
 		);
 	$AscDesc = array(
 		 'ASC'=>'croissant',
@@ -108,7 +109,7 @@
 	echo form_hidden('tableName','students');
 		
 	echo form_label("Tri : ");
-	echo form_dropdown("order",$order);
+	echo form_dropdown("orders",$orders);
 	
 	echo form_label("Par ordre : ");
 	echo form_dropdown("AscDesc",$AscDesc);

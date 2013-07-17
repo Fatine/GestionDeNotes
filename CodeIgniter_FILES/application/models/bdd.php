@@ -14,10 +14,10 @@ class Bdd extends CI_Model
 	function add($tableName, $newUser){
 		$this->db->insert($tableName, $newUser); 
 	}
-	function order($data){
-		$request='SELECT * FROM '.$data['tableName'].' ORDER BY '.$data['order'].' '.$data['AscDesc'];
-		$query=$this->db->select($request);
-		return $query;
+	
+	function order($tableName, $order, $AscDesc){
+		$query=$this->db->select()->from($tableName)->order_by($order,$AscDesc);
+		return $query->get();
 	}
 }
 
