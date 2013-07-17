@@ -360,6 +360,8 @@ $config['rewrite_short_tags'] = FALSE;
 */
 $config['proxy_ips'] = '';
 
+//for fpdf
+$config['fonts_path']= "system/fonts/font";
 
 /* End of file config.php */
 /* Location: ./application/config/config.php */

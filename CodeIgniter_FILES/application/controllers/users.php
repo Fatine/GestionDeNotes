@@ -2,8 +2,8 @@
 class users extends Controller{
 
  function users(){
- parent::Controller();
-
+ 	parent::Controller();
+	$this->load->library("pagination");
  }
 
  function index(){
