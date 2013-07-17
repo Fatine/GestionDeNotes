@@ -70,16 +70,13 @@
 	<? php 
 	echo form_open ('aide');
 	echo form_label ('Votre nom', 'nom');
-	$ Ndata = array ('name' => 'nom', 'id' => 'id', 'size' => '25 ');
-	echo form_input ($ ndata);
+	echo form_input ($lastname);
 
 	echo form_label ('Votre e-mail ',' email ');
-	$ Edata = array ('name' => 'email', 'id' => 'e-mail', 'taille' => '25 ');
-	echo form_input ($ edata);
+	echo form_input ($email);
 
 	echo form_label (' Votre question : ', 'notes');
-	$ CDATA = array ('name' => 'notes', 'id' => 'notes', 'cols' => '40 ',' rows '=> '5');
-	echo form_textarea ($ CDATA);
+	echo form_textarea ($comment);
 
 	echo form_submit ('submit', 'Envoyer');
 	echo form_close ();

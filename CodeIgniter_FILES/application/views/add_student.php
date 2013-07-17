@@ -66,34 +66,43 @@
 </head>
 <body>
 
-	<h2> Modifier votre profil </ h2>
-	<?php 
+	<h2> Ajouter un étudiant </ h2>
+<?php
+	echo '</br>';echo '</br>';
 	
-	echo '<br/>';
-	echo '<br/>';
-	echo '<br/>';
-	echo form_open('profil');
+	//Overture du formulaire
+	echo form_open('modify/add');
+
+	echo form_hidden('tableName','students');
 	
-	echo form_label ('Civilité : ', 'title');
-	echo form_input ($title); 
-	echo '<br/>';
+	//Initialisation des valeurs d'un dropdown (select)
+	$titles = array(
+	 'Madame'=>'Madame',
+	 'Mademoiselle'=>'Mademoiselle',
+	 'Monsieur'=>'Monsieur'
+	);
+	echo form_label("Civilité : ");
+	echo form_dropdown("title",$titles);
+	echo '</br>';
+	echo form_label("Nom : ");
+	echo form_input('lastname');
+	echo '</br>';
+
+	echo form_label("Prénom : ");
+	echo form_input('firstname');
+	echo '</br>';
+
+	echo form_label("Email : ");
+	echo form_input('email');
+	echo '</br>';
+
+	//Génération du bouton submit
+	echo form_submit("submit","Enregistrer");
+
+	//Fermeture du formulaire
+	echo form_close();
 	
-	echo form_label ('Votre nom', 'lastname');
-	echo form_input ($lastname);
-	echo '<br/>';
-
-	echo form_label ('Votre prénom', 'firstname');
-	echo form_input ($firstname);
-	echo '<br/>';
-	
-	echo form_label ('Votre e-mail ',' email ');
-	echo form_input ($email);
-	echo '<br/>';
-
-
-//	echo form_submit ('submit', 'Envoyer');
-	echo form_close ();
-	?>
-
+	echo '<h5><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/students" title="Retour">Retour</a></h5>';
+?>
 </body>
 </html>

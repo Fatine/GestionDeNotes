@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,10 +65,14 @@
 	</style>
 </head>
 <body>
+<?php
 
-<h3>Nouvel utilisateur::</h3>
-<p>Cette interface vous permet d'ajouter un nouvel utilisateur</p>
-<p><a href="users/">retour</a></p>
+echo '<p>Enregistrement ins&eacute;r&eacute;</p>';
+ 		
+echo '<p><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/modify/add_student">Ajouter un autre &eacute;tudiant</a></p>'; 
 
+echo '<h5><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/students" title="Retour">Retour &agrave; la gestion des &eacute;tudiants</a></h5>';
+
+?>
 </body>
 </html>

@@ -70,38 +70,53 @@
 <h5><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/" title="Retour"-->Retour à l'accueil</a></h5>
 
 <div id="content">
-<TABLE BORDER="1"> 
+<a href="modify/add_student/">Ajouter un étudiant</a>
+<TABLE align="center" border="1px"> 
   <CAPTION> Tableau des étudiants </CAPTION> 
   <TR> 
- <TH width="100px"> N° étudiant </TH> 
  <TH width="100px"> Nom </TH> 
  <TH width="100px"> Prénom </TH>
+ <TH width="100px"> email </TH>
   </TR> 
 <?php
-	$query = $this->db->query('SELECT * FROM students');
 	foreach ($query->result() as $row){
-	   echo '<TR>';
-	   echo '  <TD>'.$row->lastname.'</TD>';
-	   echo '  <TD>'.$row->firstname.'</TD>';
-	   echo '  <TD>'.$row->diploma.'</TD>';
+	   echo '<TR >';
+	   echo '  <TD align="center">'.$row->lastname.'</TD>';
+	   echo '  <TD align="center">'.$row->firstname.'</TD>';
+	   echo '  <TD align="center">'.$row->email.'</TD>';
+	   echo '  <TD style="border:1px solid black"><a href="lists/grades_student/">Voir</a></TD>';
+	   echo '  <TD style="border:1px solid black"><a href="modify/modify_student/">Modifier</a></TD>';
+	   echo '  <TD style="border:1px solid black"><a href="modify/delete_student/">Supprimer</a></TD>';
 	   echo '</TR>';
 	}
 ?> 
-</TABLE> 
+</TABLE>
+<?php
+	
+	$order = array(
+		 'byLastname'=>'Par Nom',
+		 'byFirstname'=>'Par Prénom',
+		 'byDiploma'=>'Par Diplôme',
+		);
+	$AscDesc = array(
+		 'ASC'=>'croissant',
+		 'DESC'=>'décroissant',
+		);
+		
+	echo form_open('lists/order');
+	
+	echo form_hidden('tableName','students');
+		
+	echo form_label("Tri : ");
+	echo form_dropdown("order",$order);
+	
+	echo form_label("Par ordre : ");
+	echo form_dropdown("AscDesc",$AscDesc);
+	
+	
+	echo form_submit("submit","Trier");
 
-
-<p>
-<ul>
-<li><a href="modify/add_student/">Ajouter un étudiant</a></li>
-<li><a href="modify/modify_student/">Modifier un étudiant</a></li>
-<li><a href="modify/delete_student/">Supprimer un étudiant</a></li>
-</ul>
-</p>
-<p>
-<ul>
-<li><a href="lists/grades_student/">Voir les notes d'un étudiant</a></li>
-</ul>
-</p>
+?>
 </div>
 
 </body>

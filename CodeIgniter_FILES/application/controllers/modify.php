@@ -5,6 +5,7 @@ class Modify extends CI_Controller
 	function __construct(){
 		parent::__construct();
 		$this->load->helper("url");
+		$this->load->model('bdd');
 	}
 	
 	function find($user_attributes){
@@ -12,13 +13,26 @@ class Modify extends CI_Controller
 		return $user_id;
 	}
 	
-	function add($user_id){	
+	function add(){
+		if(isset($_POST['lastname'],$_POST['firstname'],$_POST['email'])){
+			 $newUser = array(
+				 'title'=>$_POST['title'],
+		 		 'lastname'=>$_POST['lastname'],
+				 'firstname'=>$_POST['firstname'],
+				 'email'=>$_POST['email'],
+		 		 );
+			 //Insert
+			 $this->bdd->add('students',$newUser); 
+    			 $this->load->view('submitted');
+ 		}else{
+ 			echo '<p>Echec de l\'enregistrement</p>';
+ 		}
 	}
 	
-	function modify($user_id){	
+	function modify(){	
 	}
 	
-	function delete($user_id){	
+	function delete(){	
 	}
 	
 /*
@@ -28,19 +42,23 @@ class Modify extends CI_Controller
  */
 	//Add a student
 	function add_student(){
-		  
-		echo '<p><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/modify/add_student">Ajouter un autre etudiant</a></p>'; 
- 		echo '<p><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/students" title="Retour">Retour</a></p>';
+ 		$data['tableName']='students';
+ 		$data['title']='';
+ 		$data['firstname']='';
+ 		$data['lastname']='';
+ 		$data['email']='';
+ 		$this->load->view('add_student',$data);
 	}	
+	
 	//Modify a student
 	function modify_student(){
 		 
- 		echo '<p><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/students" title="Retour">Retour</a></p>';
+ 		echo '<h5><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/students" title="Retour">Retour</a></h5>';
 	}	
 	//Delete a student
 	function delete_student(){
 		 
- 		echo '<p><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/students" title="Retour">Retour</a></p>';
+ 		echo '<h5><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/students" title="Retour">Retour</a></h5>';
 	}
 
 

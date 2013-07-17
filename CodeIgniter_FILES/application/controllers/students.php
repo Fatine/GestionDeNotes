@@ -9,6 +9,8 @@ class Students extends CI_Controller {
 		$data['firstname']='';
 		$data['email']='';
 		
+		$query = $this->db->query('SELECT * FROM students');
+		$data['query'] = $query;
 	     $this->load->view( 'students_module', $data );
 	}
 }

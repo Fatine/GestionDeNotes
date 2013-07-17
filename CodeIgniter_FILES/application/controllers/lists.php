@@ -8,24 +8,29 @@ class Lists extends CI_Controller
 
 		$this->load->helper("url");
 		$this->load->library("pagination");
+		$this->load->model("bdd");
 	}
 
+//ordering
+	function order(){
+		$order = array(
+				 'tableName'=>$_POST['tableName'],
+				 'order'=>$_POST['order'],
+		 		 'AscDesc'=>$_POST['AscDesc'],
+		 		 );
+			 //Insert
+			 $query=$this->bdd->order('tableName',$order); 
+			 
+			 $data['title']='';
+			 $data['lastname']='';
+			 $data['firstname']='';
+			 $data['email']='';
+			 $data['query'] = $query;
+    			 $this->load->view('students_module',$data);
+	}
 //list of users
 	function list_users(){
-	 	$this->db->select('username')->from('users')->order_by("username","ASC"); 
-	 	$query = $this->db->get();
-      	if ($query->num_rows() > 0){	
-			foreach ($query->result() as $row){ 
-				echo $row->username.'<br/>';
-	 		}
-		 }
-	 	echo $this->pagination->create_links(); 
-		echo '<p><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/" title="Retour"-->Retour<!--/a--></p>';
-	}	
-
-//list of courses
-function list_courses(){
-	 	
+      	
 		echo '<p><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/" title="Retour"-->Retour<!--/a--></p>';
 	}	
 
