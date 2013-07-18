@@ -64,36 +64,70 @@
 		-webkit-box-shadow: 0 0 8px #D0D0D0;
 	}
 	</style>
+	
+	<SCRIPT language="Javascript">
+	function supprimer(id) {
+		window.location.href = 'http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/modify/delete_student';
+	}
+	function voir(id) {
+		window.location.href = 'http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/lists/see_student';
+	}
+	function modifier(id) {
+		window.location.href = 'http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/modify/modify_student';
+	}
+	</SCRIPT>
+
 </head>
 <body>
-<h1>Gérer les étudiants</h1>
-<h5><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/" title="Retour"-->Retour à l'accueil</a></h5>
+<h1>G&eacute;rer les &eacute;tudiants</h1>
+<h5><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/" title="Retour"-->Retour &agrave; l'accueil</a></h5>
 
 <div id="content">
-<a href="modify/add_student/">Ajouter un étudiant</a>
-<TABLE align="center" border="1px"> 
+<a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/modify/add_student/">Ajouter un &eacute;tudiant</a>
+<TABLE border="1px"> 
   <CAPTION> Tableau des étudiants </CAPTION> 
   <TR> 
  <TH width="100px"> Nom </TH> 
  <TH width="100px"> Prénom </TH>
- <TH width="100px"> email </TH>
+ <TH width="200px"> email </TH>
   </TR> 
 <?php
-
+     $data = array(
+	    'name' => 'button',
+	    'id' => 'button',
+	    'value' => '',
+	    'type' => 'submit',
+	    'content' => 'Supprimer'
+	);
+	$id=array();
 	foreach ($query->result() as $row){
-	   echo '<TR >';
-	   echo '  <TD align="center">'.$row->lastname.'</TD>';
-	   echo '  <TD align="center">'.$row->firstname.'</TD>';
-	   echo '  <TD align="center">'.$row->email.'</TD>';
-	   echo '  <TD style="border:1px solid black"><a href="lists/grades_student/">Voir</a></TD>';
-	   echo '  <TD style="border:1px solid black"><a href="modify/modify_student/">Modifier</a></TD>';
-	   echo '  <TD style="border:1px solid black"><a href="modify/delete_student/">Supprimer</a></TD>';
-	   echo '</TR>';
+?>
+   <TR >
+	  <TD align="center"><?php  echo $row->lastname  ?></TD>
+	  <TD align="center"><?php  echo $row->firstname ?></TD>
+	  <TD align="center"><?php  echo $row->email     ?></TD>
+	  <TD><?php 
+	  	echo form_open('lists/see_student');
+	  	echo form_hidden('id',$row->id);
+	  	echo form_submit('submit','Voir'); 
+	  	echo form_close(); ?></TD>
+	  <TD><?php 
+	  	echo form_open('modify/modify_student');
+	  	echo form_hidden('id',$row->id);
+	  	echo form_submit('submit','Modifier'); 
+	  	echo form_close(); ?></TD>
+	  <TD><?php 
+	  	echo form_open('modify/delete_student');
+	  	echo form_hidden('id',$row->id);	  	
+	  	echo form_submit('submit','Supprimer'); 
+	  	echo form_close(); ?></TD>
+   </TR>
+<?php
 	}
 ?> 
 </TABLE>
+
 <?php
-	
 	$orders = array(
 		 'lastname'=>'Par Nom',
 		 'firstname'=>'Par Prénom',
@@ -103,18 +137,12 @@
 		 'ASC'=>'croissant',
 		 'DESC'=>'décroissant',
 		);
-		
 	echo form_open('lists/order');
-	
 	echo form_hidden('tableName','students');
-		
 	echo form_label("Tri : ");
 	echo form_dropdown("orders",$orders);
-	
 	echo form_label("Par ordre : ");
 	echo form_dropdown("AscDesc",$AscDesc);
-	
-	
 	echo form_submit("submit","Trier");
 
 ?>

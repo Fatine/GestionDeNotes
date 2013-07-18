@@ -11,6 +11,7 @@ class Students extends CI_Controller {
 		
 		$query = $this->db->query('SELECT * FROM students');
 		$data['query'] = $query;
+
 	     $this->load->view( 'students_module', $data );
 	}
 }

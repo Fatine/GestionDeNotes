@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,44 +66,48 @@
 	</style>
 </head>
 <body>
+<h1>Gérer les étudiants</h1>
+<h5><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/" title="Retour"-->Retour à l'accueil</a></h5>
 
-	<h2> Ajouter un étudiant </ h2>
+<div id="content">
+<a href="modify/add_student/">Ajouter une UE</a>
+<TABLE border="1px"> 
+  <CAPTION> Tableau des UEs </CAPTION> 
+  <TR> 
+ <TH width="100px"> Nom </TH> 
+  </TR> 
 <?php
-	echo '</br>';echo '</br>';
 
-	//Overture du formulaire
-	echo form_open('modify/add');
-
-	echo form_hidden('tableName','students');
-	
-	//Initialisation des valeurs d'un dropdown (select)
-	$titles = array(
-	 'Madame'=>'Madame',
-	 'Mademoiselle'=>'Mademoiselle',
-	 'Monsieur'=>'Monsieur'
-	);
-	echo form_label("Civilité : ");
-	echo form_dropdown("title",$titles);
-	echo '</br>';
-	echo form_label("Nom : ");
-	echo form_input('lastname');
-	echo '</br>';
-
-	echo form_label("Prénom : ");
-	echo form_input('firstname');
-	echo '</br>';
-
-	echo form_label("Email : ");
-	echo form_input('email');
-	echo '</br>';
-
-	//Génération du bouton submit
-	echo form_submit("submit","Enregistrer");
-
-	//Fermeture du formulaire
-	echo form_close();
-	
-	echo '<h5><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/students" title="Retour">Retour</a></h5>';
+	foreach ($query->result() as $row){
 ?>
+   <TR >
+	  <TD align="center"><?php echo $row->lastname  ?></TD>
+	  <TD style="border:1px solid black"><a href="lists/grades_student/">Voir</a></TD>
+	  <TD style="border:1px solid black"><a href="modify/modify_student/">Modifier</a></TD>
+	  <TD style="border:1px solid black"><a href="modify/delete_student/">Supprimer</a></TD>
+   </TR>
+<?php
+	}
+?> 
+</TABLE>
+<?php
+	
+	$AscDesc = array(
+		 'ASC'=>'croissant',
+		 'DESC'=>'décroissant',
+		);
+		
+	echo form_open('lists/order');
+	
+	echo form_hidden('tableName','courses');
+		
+	echo form_label("Par ordre : ");
+	echo form_dropdown("AscDesc",$AscDesc);
+	
+	echo form_submit("submit","Trier");
+
+?>
+</div>
+
 </body>
 </html>

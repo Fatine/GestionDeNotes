@@ -63,46 +63,25 @@
 		-webkit-box-shadow: 0 0 8px #D0D0D0;
 	}
 	</style>
+	</SCRIPT> 
 </head>
 <body>
 
-	<h2> Ajouter un étudiant </ h2>
+	<h2> Supprimer un étudiant </ h2>
 <?php
-	echo '</br>';echo '</br>';
-
-	//Overture du formulaire
-	echo form_open('modify/add');
-
-	echo form_hidden('tableName','students');
+	echo '<br/>';echo '<br/>';echo '<br/>';
+	echo 'Supprimer l\'étudiant : <br/>          '.$nom.' '.$prenom.' ? <br/>';
 	
-	//Initialisation des valeurs d'un dropdown (select)
-	$titles = array(
-	 'Madame'=>'Madame',
-	 'Mademoiselle'=>'Mademoiselle',
-	 'Monsieur'=>'Monsieur'
-	);
-	echo form_label("Civilité : ");
-	echo form_dropdown("title",$titles);
-	echo '</br>';
-	echo form_label("Nom : ");
-	echo form_input('lastname');
-	echo '</br>';
-
-	echo form_label("Prénom : ");
-	echo form_input('firstname');
-	echo '</br>';
-
-	echo form_label("Email : ");
-	echo form_input('email');
-	echo '</br>';
-
-	//Génération du bouton submit
-	echo form_submit("submit","Enregistrer");
-
-	//Fermeture du formulaire
+	echo form_open('students');
+	echo form_submit('submit','Annuler'); 
 	echo form_close();
 	
-	echo '<h5><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/students" title="Retour">Retour</a></h5>';
+	echo form_open('modify/delete');
+	echo form_hidden('id',$id);
+	echo form_hidden('tableName',$tableName);
+	echo form_submit('submit','Valider'); 
+	echo form_close();
+	
 ?>
 </body>
 </html>
