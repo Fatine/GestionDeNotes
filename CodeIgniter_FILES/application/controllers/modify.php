@@ -12,31 +12,29 @@ class Modify extends CI_Controller
 		
 		return $user_id;
 	}
-	
+	//ajouter un etudiant, un professeur, un administrateur
 	function add(){
-		if(isset($_POST['lastname'],$_POST['firstname'],$_POST['email'])){
-			 $newUser = array(
-				 'title'=>$_POST['title'],
-		 		 'lastname'=>$_POST['lastname'],
-				 'firstname'=>$_POST['firstname'],
-				 'email'=>$_POST['email'],
-		 		 );
-			 //Insert
-			 $this->bdd->add($_POST['tableName'],$newUser); 
-    			 $this->load->view('submitted');
- 		}else{
- 			$data['title']='';
-			$data['lastname']='';
-			$data['firstname']='';
-			$data['email']='';
-		
-			$query = $this->db->query('SELECT * FROM students');
-			$data['query'] = $query;
-
-			$this->load->view( 'students_module', $data );
- 		}
-	}
-	
+		$newUser = array(
+			 'title'=>$_POST['title'],
+			 'lastname'=>$_POST['lastname'],
+			 'firstname'=>$_POST['firstname'],
+			 'email'=>$_POST['email'],
+			 );
+		//Insert
+		$this->bdd->add($_POST['tableName'],$newUser); 
+    		$this->load->view('submitted');
+ 	}
+ 	//ajouter une ue
+	function add_c(){
+		$new = array(
+			 'name'=>$_POST['name'],
+			 'shortname'=>$_POST['shortname'],
+			 'comment_group_id'=>$_POST['comment_group_id'],
+			 );
+		//Insert
+		$this->bdd->add($_POST['tableName'],$new); 
+    		$this->load->view('submitted');
+ 	}
 	function modify_data(){
 		$user = array(
 				 'id'=>$_POST['id'],
@@ -51,16 +49,7 @@ class Modify extends CI_Controller
 	
 	function delete(){	
 		$this->bdd->delete($_POST['tableName'],$_POST['id']);
-		
-		$data['title']='';
-		$data['lastname']='';
-		$data['firstname']='';
-		$data['email']='';
-		
-		$query = $this->db->query('SELECT * FROM students');
-		$data['query'] = $query;
-
-	     $this->load->view( 'students_module', $data );
+	     $this->load->view('submitted');
 	}
 	
 /*
@@ -155,8 +144,11 @@ class Modify extends CI_Controller
  */
 	//Add a course
 	function add_course(){
- 
- 		echo '<p><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/modify/add_course">Ajouter une autre unité d\'enseignement</a></p>'; 
+ 		$data['tableName']='courses';
+ 		$data['name']='';
+ 		$data['shortname']='';
+ 		$data['comment_group_id']='';
+ 		$this->load->view('add_course',$data);
 	}
 	//Add grades
 	function add_grades(){

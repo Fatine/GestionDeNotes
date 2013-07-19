@@ -64,46 +64,76 @@
 		-webkit-box-shadow: 0 0 8px #D0D0D0;
 	}
 	</style>
+	
+	<SCRIPT language="Javascript">
+	function supprimer(id) {
+		window.location.href = 'http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/modify/delete_student';
+	}
+	function voir(id) {
+		window.location.href = 'http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/lists/see_student';
+	}
+	function modifier(id) {
+		window.location.href = 'http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/modify/modify_student';
+	}
+	</SCRIPT>
+
 </head>
 <body>
-<h1>Gérer les étudiants</h1>
-<h5><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/" title="Retour"-->Retour à l'accueil</a></h5>
+<h1>G&eacute;rer les unit&eacute;s d'enseignement</h1>
+<h5><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/" title="Retour"-->Retour &agrave; l'accueil</a></h5>
 
 <div id="content">
-<a href="modify/add_student/">Ajouter une UE</a>
+<a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/modify/add_course/">Ajouter une unit&eacute; d'enseignement</a>
 <TABLE border="1px"> 
   <CAPTION> Tableau des UEs </CAPTION> 
   <TR> 
- <TH width="100px"> Nom </TH> 
+ <TH width="450px"> Nom </TH> 
+ <TH width="100px"> Raccourci</TH>
+ <TH width="200px"> Commentaires </TH>
   </TR> 
 <?php
-
 	foreach ($query->result() as $row){
 ?>
    <TR >
-	  <TD align="center"><?php echo $row->lastname  ?></TD>
-	  <TD style="border:1px solid black"><a href="lists/grades_student/">Voir</a></TD>
-	  <TD style="border:1px solid black"><a href="modify/modify_student/">Modifier</a></TD>
-	  <TD style="border:1px solid black"><a href="modify/delete_student/">Supprimer</a></TD>
+	  <TD align="center"><?php  echo $row->name  ?></TD>
+	  <TD align="center"><?php  echo $row->shortname ?></TD>
+	  <TD align="center"><?php  echo $row->comment_group_id ?></TD>
+	  <TD><?php 
+	  	echo form_open('lists/see_courses');
+	  	echo form_hidden('id',$row->id);
+	  	echo form_submit('submit','Voir'); 
+	  	echo form_close(); ?></TD>
+	  <TD><?php 
+	  	echo form_open('modify/modify_courses');
+	  	echo form_hidden('id',$row->id);
+	  	echo form_submit('submit','Modifier'); 
+	  	echo form_close(); ?></TD>
+	  <TD><?php 
+	  	echo form_open('modify/delete_courses');
+	  	echo form_hidden('id',$row->id);	  	
+	  	echo form_submit('submit','Supprimer'); 
+	  	echo form_close(); ?></TD>
    </TR>
 <?php
 	}
 ?> 
 </TABLE>
+
 <?php
-	
+	$orders = array(
+		 'name'=>'Par Nom',
+		 'shortname'=>'Par Raccourci',
+		);
 	$AscDesc = array(
 		 'ASC'=>'croissant',
 		 'DESC'=>'décroissant',
 		);
-		
 	echo form_open('lists/order');
-	
 	echo form_hidden('tableName','courses');
-		
+	echo form_label("Tri : ");
+	echo form_dropdown("orders",$orders);
 	echo form_label("Par ordre : ");
 	echo form_dropdown("AscDesc",$AscDesc);
-	
 	echo form_submit("submit","Trier");
 
 ?>

@@ -65,12 +65,36 @@
 	</style>
 </head>
 <body>
+
+	<h2> Ajouter une unité d'enseignement </ h2>
 <?php
+	echo '</br>';echo '</br>';
 
-echo '<p>Enregistrement effectu&eacute;</p>'; 
+	//Overture du formulaire
+	echo form_open('modify/add_c');
 
-echo '<h5><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/" title="Retour">Retour</a></h5>';
+	echo form_hidden('tableName','courses');
+	
+	//Initialisation des valeurs d'un dropdown (select)
+	echo form_label("Nom : ");
+	echo form_input('name');
+	echo '</br>';
 
+	echo form_label("Raccourci : ");
+	echo form_input('shortname');
+	echo '</br>';
+
+	echo form_label("Commentaire : ");
+	echo form_textarea('comment_group_id');
+	echo '</br>';
+
+	//Génération du bouton submit
+	echo form_submit("submit","Enregistrer");
+
+	//Fermeture du formulaire
+	echo form_close();
+	
+	echo '<h5><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/courses" title="Retour">Retour</a></h5>';
 ?>
 </body>
 </html>
