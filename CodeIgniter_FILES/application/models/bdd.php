@@ -24,8 +24,23 @@ class Bdd extends CI_Model
 	
 	//supprimer quelqu'un
 	function delete($tableName, $id){
-		$this->db->query('DELETE FROM '.$tableName.' WHERE id = '.$id);
-           
+		$this->db->query('DELETE FROM '.$tableName.' WHERE id = '.$id);   
+	}
+	
+	//voir les notes d'un étudiant
+	function student_grades($id){
+		$query=$this->db->query('SELECT * 
+						FROM grades g, students s, courses_columns c 
+						WHERE student_id='.$id.'
+							AND courses_columns_id=c.id');   
+		if ($query->num_rows() > 1){
+			return $query;
+		}else if ($query->num_rows() == 1){
+			$row=$query->row();
+			return $row;
+		}else{
+			return null;
+		}
 	}
 	
 	//trier des données
@@ -36,7 +51,7 @@ class Bdd extends CI_Model
 	
 	//récupérer les données de quelqu'un par son id
 	function get_by_id($tableName, $id){
-		$query=$this->db->query('SELECT * FROM '.$tableName.' WHERE id='.$id);
+		$query=$this->db->query('SELECT DISTINCT * FROM '.$tableName.' WHERE id='.$id);
 		if ($query->num_rows() > 0){
 			$row=$query->row();
 			return $row;

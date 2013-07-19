@@ -21,15 +21,17 @@ class Lists extends CI_Controller
 			 $data['query'] = $query;
     			 $this->load->view('students_module',$data);
 	}
-//list of users
-	function list_users(){
-      	
-		echo '<p><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/" title="Retour"-->Retour<!--/a--></p>';
+//list of students grades
+	function see_student_grades(){
+		$query=$this->bdd->student_grades($_POST['id']);
+		
+//		$data['id']=$_POST['id'];
+		$data['query']=$query;
+      	$this->load->view('see',$data);
 	}	
 
-//list of grades
-function grades_course(){
+//list of courses grades
+function see_course_grades(){
 
-		echo '<p><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/" title="Retour"-->Retour<!--/a--></p>';
 	}
 }

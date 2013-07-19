@@ -64,18 +64,6 @@
 		-webkit-box-shadow: 0 0 8px #D0D0D0;
 	}
 	</style>
-	
-	<SCRIPT language="Javascript">
-	function supprimer(id) {
-		window.location.href = 'http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/modify/delete_student';
-	}
-	function voir(id) {
-		window.location.href = 'http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/lists/see_student';
-	}
-	function modifier(id) {
-		window.location.href = 'http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/modify/modify_student';
-	}
-	</SCRIPT>
 
 </head>
 <body>
@@ -83,7 +71,9 @@
 <h5><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/" title="Retour"-->Retour &agrave; l'accueil</a></h5>
 
 <div id="content">
+
 <a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/modify/add_student/">Ajouter un &eacute;tudiant</a>
+
 <TABLE border="1px"> 
   <CAPTION> Tableau des étudiants </CAPTION> 
   <TR> 
@@ -92,14 +82,7 @@
  <TH width="200px"> email </TH>
   </TR> 
 <?php
-     $data = array(
-	    'name' => 'button',
-	    'id' => 'button',
-	    'value' => '',
-	    'type' => 'submit',
-	    'content' => 'Supprimer'
-	);
-	$id=array();
+     
 	foreach ($query->result() as $row){
 ?>
    <TR >
@@ -107,9 +90,9 @@
 	  <TD align="center"><?php  echo $row->firstname ?></TD>
 	  <TD align="center"><?php  echo $row->email     ?></TD>
 	  <TD><?php 
-	  	echo form_open('lists/see_student');
+	  	echo form_open('lists/see_student_grades');
 	  	echo form_hidden('id',$row->id);
-	  	echo form_submit('submit','Voir'); 
+	  	echo form_submit('submit','Voir les notes'); 
 	  	echo form_close(); ?></TD>
 	  <TD><?php 
 	  	echo form_open('modify/modify_student');
