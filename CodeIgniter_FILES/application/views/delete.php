@@ -74,8 +74,10 @@
 	switch($tableName){
 	case 'students':
 		echo form_open('students');
+		break;
 	case 'courses' :
 		echo form_open('courses');
+		break;
 	}
 	echo form_submit('submit','Annuler'); 
 	echo form_close();

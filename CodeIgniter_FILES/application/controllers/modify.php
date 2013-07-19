@@ -36,14 +36,24 @@ class Modify extends CI_Controller
     		$this->load->view('submitted');
  	}
 	function modify_data(){
-		$user = array(
+		switch($_POST['tableName']){
+			case 'students':
+				$data = array(
 				 'id'=>$_POST['id'],
 				 'title'=>$_POST['title'],
 		 		 'lastname'=>$_POST['lastname'],
 				 'firstname'=>$_POST['firstname'],
 				 'email'=>$_POST['email'],
 		 		 );
-		$this->bdd->update($_POST['tableName'],$user,$_POST['id']); 
+			case 'courses' :
+				$data = array(
+				 'id'=>$_POST['id'],
+				 'name'=>$_POST['name'],
+				 'shortname'=>$_POST['shortname'],
+				 'comment_group_id'=>$_POST['comment_group_id'],
+		 		 );
+		}
+		$this->bdd->update($_POST['tableName'],$data,$_POST['id']); 
     		$this->load->view('submitted');
  	}
 	
@@ -71,6 +81,7 @@ class Modify extends CI_Controller
 	function modify_student(){
  		$query=$this->bdd->get_by_id('students', $_POST['id']);
 		$user = array(
+				 'tableName'=>'students',
 				 'id'=>$_POST['id'],
 				 'title'=>$query->title,
 		 		 'lastname'=>$query->lastname,
@@ -78,7 +89,6 @@ class Modify extends CI_Controller
 				 'email'=>$query->email,
 		 		 );
 		 $this->load->view('modify_data',$user);
- 
 	}	
 	//Delete a student
 	function delete_student(){
@@ -155,6 +165,15 @@ class Modify extends CI_Controller
 	}
 	//Modify a course
 	function modify_course(){
+ 		$query=$this->bdd->get_by_id('courses', $_POST['id']);
+		$data = array(
+				 'tableName'=>'courses',
+				 'id'=>$_POST['id'],
+		 		 'name'=>$query->name,
+				 'shortname'=>$query->shortname,
+				 'comment_group_id'=>$query->comment_group_id,
+		 		 );
+		 $this->load->view('modify_data',$data);
 	}
 	//Delete a course
 	function delete_course(){
