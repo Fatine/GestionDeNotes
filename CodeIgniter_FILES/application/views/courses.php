@@ -104,12 +104,12 @@
 	  	echo form_submit('submit','Voir'); 
 	  	echo form_close(); ?></TD>
 	  <TD><?php 
-	  	echo form_open('modify/modify_courses');
+	  	echo form_open('modify/modify_course');
 	  	echo form_hidden('id',$row->id);
 	  	echo form_submit('submit','Modifier'); 
 	  	echo form_close(); ?></TD>
 	  <TD><?php 
-	  	echo form_open('modify/delete_courses');
+	  	echo form_open('modify/delete_course');
 	  	echo form_hidden('id',$row->id);	  	
 	  	echo form_submit('submit','Supprimer'); 
 	  	echo form_close(); ?></TD>

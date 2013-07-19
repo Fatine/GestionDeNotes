@@ -158,5 +158,9 @@ class Modify extends CI_Controller
 	}
 	//Delete a course
 	function delete_course(){
+		$data['tableName']='courses';
+ 		$data['id']=$_POST['id'];
+ 		$query=$this->bdd->get_by_id('courses', $_POST['id']);
+		$this->load->view('delete',$data);
 	}
 }

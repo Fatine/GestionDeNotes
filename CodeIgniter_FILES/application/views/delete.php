@@ -67,12 +67,16 @@
 </head>
 <body>
 
-	<h2> Supprimer un étudiant </ h2>
 <?php
 	echo '<br/>';echo '<br/>';echo '<br/>';
-	echo 'Supprimer l\'étudiant : <br/>          '.$nom.' '.$prenom.' ? <br/>';
+	echo 'Voulez-vous vraiment effectuer cette suppression ? <br/>';
 	
-	echo form_open('students');
+	switch($tableName){
+	case 'students':
+		echo form_open('students');
+	case 'courses' :
+		echo form_open('courses');
+	}
 	echo form_submit('submit','Annuler'); 
 	echo form_close();
 	
@@ -81,7 +85,6 @@
 	echo form_hidden('tableName',$tableName);
 	echo form_submit('submit','Valider'); 
 	echo form_close();
-	
 ?>
 </body>
 </html>
