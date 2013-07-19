@@ -81,7 +81,9 @@
  <TH width="100px"> Etat </TH>
   </TR> 
 <?php
-	if($query->num_rows()==1){
+	if($nbLignes==0){
+		echo 'Pas de notes à afficher !';
+	}else if($nbLignes==1){
 		$row=$query->row();
 ?>		<TR >
 		  <TD align="center"><?php  echo $row->date_created  ?></TD>
@@ -96,8 +98,8 @@
 		   <TR >
 			  <TD align="center"><?php  echo $row->date_created  ?></TD>
 			  <TD align="center"><?php  echo $row->name ?></TD>
-			  <TD align="center"><?php  echo $row->value     ?></TD>
-			  <TD align="center"><?php  if($row->value < 10){echo "DEF";}else{echo "ADM";}  ?></TD>
+			  <TD align="center"><?php  echo $row->value.'/'.$row->out_of;   ?></TD>
+			  <TD align="center"><?php  if($row->value<10){echo "DEF";}else{echo "ADM";}  ?></TD>
 		   </TR>
 <?php
 		}

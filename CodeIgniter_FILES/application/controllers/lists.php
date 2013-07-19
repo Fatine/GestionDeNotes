@@ -25,8 +25,17 @@ class Lists extends CI_Controller
 	function see_student_grades(){
 		$query=$this->bdd->student_grades($_POST['id']);
 		
-//		$data['id']=$_POST['id'];
-		$data['query']=$query;
+		$data['id']=$_POST['id'];
+		if($query!=null){
+			$data['query']=$query;
+			if($query->num_rows() >1 ){
+				$data['nbLignes']=1;
+			}else{
+				$data['nbLignes']='';
+			}
+		}else{
+			$data['nbLignes']=0;
+		}
       	$this->load->view('see',$data);
 	}	
 
