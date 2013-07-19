@@ -77,7 +77,7 @@
 <TABLE border="1px"> 
   <CAPTION> Tableau des étudiants </CAPTION> 
   <TR> 
- <TH width="100px"> Nom </TH> 
+ <TH width="300px"> Nom </TH> 
  <TH width="100px"> Prénom </TH>
  <TH width="200px"> email </TH>
   </TR> 

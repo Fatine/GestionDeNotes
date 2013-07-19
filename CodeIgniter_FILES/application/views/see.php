@@ -76,7 +76,7 @@
   <CAPTION> Récapitulatif étudiant </CAPTION> 
   <TR> 
  <TH width="100px"> Année </TH> 
- <TH width="100px"> Ue </TH>
+ <TH width="300px"> Ue </TH>
  <TH width="100px"> Note </TH>
  <TH width="100px"> Etat </TH>
   </TR> 
@@ -86,7 +86,7 @@
 	}else if($nbLignes==1){
 		$row=$query->row();
 ?>		<TR >
-		  <TD align="center"><?php  echo $row->date_created  ?></TD>
+		  <TD align="center"><?php  echo $row->year  ?></TD>
 		  <TD align="center"><?php  echo $row->name  ?></TD>
 		  <TD align="center"><?php  echo $row->value ?></TD>
 		  <TD align="center"><?php  if($row->value < 10){echo "DEF";}else{echo "ADM";}  ?></TD>
@@ -96,7 +96,7 @@
 		foreach ($query->result() as $row){
 ?>
 		   <TR >
-			  <TD align="center"><?php  echo $row->date_created  ?></TD>
+			  <TD align="center"><?php  echo $row->year  ?></TD>
 			  <TD align="center"><?php  echo $row->name ?></TD>
 			  <TD align="center"><?php  echo $row->value.'/'.$row->out_of;   ?></TD>
 			  <TD align="center"><?php  if($row->value<10){echo "DEF";}else{echo "ADM";}  ?></TD>
@@ -107,6 +107,8 @@
 ?> 
 </TABLE>
 
+ADM=admis 
+DEF=défaillant
 </div>
 
 </body>

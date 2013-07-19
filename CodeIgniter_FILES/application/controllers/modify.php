@@ -19,6 +19,7 @@ class Modify extends CI_Controller
 			 'lastname'=>$_POST['lastname'],
 			 'firstname'=>$_POST['firstname'],
 			 'email'=>$_POST['email'],
+			 'diploma'=>'M2DPSSA',
 			 );
 		//Insert
 		$this->bdd->add($_POST['tableName'],$newUser); 
@@ -45,6 +46,7 @@ class Modify extends CI_Controller
 				 'firstname'=>$_POST['firstname'],
 				 'email'=>$_POST['email'],
 		 		 );
+		 		 break;
 			case 'courses_columns' :
 				$data = array(
 				 'id'=>$_POST['id'],
@@ -52,6 +54,7 @@ class Modify extends CI_Controller
 				 'shortname'=>$_POST['shortname'],
 				 'description'=>$_POST['description'],
 		 		 );
+		 		 break;
 		}
 		$this->bdd->update($_POST['tableName'],$data,$_POST['id']); 
     		$this->load->view('submitted');
