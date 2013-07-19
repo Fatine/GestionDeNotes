@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: localhost
--- Généré le : Ven 19 Juillet 2013 à 12:24
+-- Généré le : Ven 19 Juillet 2013 à 15:12
 -- Version du serveur: 5.1.69
 -- Version de PHP: 5.3.2-1ubuntu4.19
 
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
 --
 
 INSERT INTO `ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-('ac5143bbbe4acfa49e126cc8519ff7d7', '::1', 'Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.22 (KHTML, like Gecko) Ubuntu Chromium/25.0.1364.160 Chrome/25.0.1364.160 ', 1374228741, 'a:4:{s:9:"user_data";s:0:"";s:7:"user_id";s:1:"3";s:8:"username";s:4:"root";s:6:"status";s:1:"1";}');
+('53277a0cdf0bf98c422a1aafa8b8ba4c', '::1', 'Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.22 (KHTML, like Gecko) Ubuntu Chromium/25.0.1364.160 Chrome/25.0.1364.160 ', 1374239239, 'a:4:{s:9:"user_data";s:0:"";s:7:"user_id";s:1:"3";s:8:"username";s:4:"root";s:6:"status";s:1:"1";}');
 
 -- --------------------------------------------------------
 
@@ -82,16 +82,36 @@ INSERT INTO `courses_columns` (`id`, `name`, `shortname`, `description`) VALUES
 CREATE TABLE IF NOT EXISTS `grades` (
   `user_id` int(100) NOT NULL,
   `student_id` int(100) NOT NULL,
-  `student_group_id` int(100) NOT NULL,
+  `student_group_id` int(100) DEFAULT NULL,
   `courses_columns_id` int(100) NOT NULL,
   `value` int(100) NOT NULL,
   `out_of` int(100) NOT NULL,
   `date_created` date NOT NULL,
-  `date_modified` date NOT NULL
+  `date_modified` date NOT NULL,
+  `year` year(4) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Contenu de la table `grades`
+--
+
+INSERT INTO `grades` (`user_id`, `student_id`, `student_group_id`, `courses_columns_id`, `value`, `out_of`, `date_created`, `date_modified`, `year`) VALUES
+(1, 3, 0, 1, 10, 20, '2013-07-19', '0000-00-00', 2013);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `inscription`
+--
+
+CREATE TABLE IF NOT EXISTS `inscription` (
+  `course_id` int(11) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `inscription_year` int(100) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Contenu de la table `inscription`
 --
 
 
@@ -150,22 +170,37 @@ CREATE TABLE IF NOT EXISTS `students` (
   `email` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
   `diploma` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `diploma_year` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `diploma_semester` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
   `student_groupe_id` int(100) DEFAULT NULL,
   `modification_id` int(100) DEFAULT NULL,
   `comments_group_id` int(100) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id` (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=7 ;
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=27 ;
 
 --
 -- Contenu de la table `students`
 --
 
-INSERT INTO `students` (`id`, `title`, `lastname`, `firstname`, `email`, `diploma`, `diploma_year`, `diploma_semester`, `student_groupe_id`, `modification_id`, `comments_group_id`) VALUES
-(3, 'Monsieur', 'da', 'fa', 'dazgt@ok.fr', '', '', NULL, NULL, NULL, NULL),
-(4, 'Madame', 'daze', 'fze', 'faz@ojiazd.fr', '', '', NULL, NULL, NULL, NULL),
-(5, 'Madame', 'fze', 'fze', 'aze@koi.com', '', '', NULL, NULL, NULL, NULL);
+INSERT INTO `students` (`id`, `title`, `lastname`, `firstname`, `email`, `diploma`, `diploma_year`, `student_groupe_id`, `modification_id`, `comments_group_id`) VALUES
+(8, 'Monsieur', 'Abdel Moneim Mahmoud', 'Ahmed', NULL, 'M2DPSSA', '', NULL, NULL, NULL),
+(7, 'Monsieur', 'Samir Agamy Abo Emera', 'Ahmed', NULL, 'M2DPSSA', '', NULL, NULL, NULL),
+(9, 'Monsieur', 'Yehia El Tantawy', 'Ahmed', NULL, 'M2DPSSA', '', NULL, NULL, NULL),
+(10, 'Monsieur', 'Alaa El Din Abdel Halim Ahmed', 'Adham', NULL, 'M2DPSSA', '', NULL, NULL, NULL),
+(11, 'Monsieur', 'Moukhtar Moussa', 'Amir', NULL, 'M2DPSSA', '', NULL, NULL, NULL),
+(12, 'Madame', 'Karim Mohamed Farouk', 'Amira', NULL, 'M2DPSSA', '', NULL, NULL, NULL),
+(13, 'Madame', 'Hani Menes Abdel Malek', 'Amira', NULL, 'M2DPSSA', '', NULL, NULL, NULL),
+(14, 'Madame', 'Adly El Sayed Ahmed', 'Engy', NULL, 'M2DPSSA', '', NULL, NULL, NULL),
+(15, 'Madame', 'Labib Mohamed Abdou', 'Aya', NULL, 'M2DPSSA', '', NULL, NULL, NULL),
+(16, 'Monsieur', 'Said Malak Zikry', 'Georges', '', 'M2DPSSA', '', NULL, NULL, NULL),
+(17, 'Monsieur', 'Achraf Khalil Ahmed', 'Khaled', NULL, 'M2DPSSA', '', NULL, NULL, NULL),
+(18, 'Madame', 'Essam Eldin Ahmed Khalifa', 'Kholoud', NULL, 'M2DPSSA', '', NULL, NULL, NULL),
+(19, 'Madame', 'Mahmoud Hussein Mahmoud', 'Dina', NULL, 'M2DPSSA', '', NULL, NULL, NULL),
+(20, 'Monsieur', 'Joseph Abdel Malak Gerges', 'Ramy', NULL, 'M2DPSSA', '', NULL, NULL, NULL),
+(21, 'Madame', 'Mohamed Salah El Din', 'Rania', NULL, 'M2DPSSA', '', NULL, NULL, NULL),
+(22, 'Madame', 'Essam MOhamed', 'Rodaina', NULL, 'M2DPSSA', '', NULL, NULL, NULL),
+(23, 'Madame', 'Tarek Abdel Baki', 'Salma', NULL, 'M2DPSSA', '', NULL, NULL, NULL),
+(24, 'Madame', 'Said Ahmed Khairat', 'Samar', NULL, 'M2DPSSA', '', NULL, NULL, NULL),
+(25, 'Monsieur', 'Tarek Mostafa Nader', 'Cherif', NULL, 'M2DPSSA', '', NULL, NULL, NULL),
+(26, 'Madame', 'Abdel Hamid Yasser Abdel Fattah', 'Aliaa', NULL, 'M2DPSSA', '', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
