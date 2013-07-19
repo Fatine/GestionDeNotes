@@ -70,10 +70,10 @@
 <?php
 	echo '</br>';echo '</br>';
 
-	//Overture du formulaire
+	//Ouverture du formulaire
 	echo form_open('modify/add_c');
 
-	echo form_hidden('tableName','courses');
+	echo form_hidden('tableName','courses_columns');
 	
 	//Initialisation des valeurs d'un dropdown (select)
 	echo form_label("Nom : ");
@@ -85,7 +85,7 @@
 	echo '</br>';
 
 	echo form_label("Commentaire : ");
-	echo form_textarea('comment_group_id');
+	echo form_textarea('description');
 	echo '</br>';
 
 	//Génération du bouton submit

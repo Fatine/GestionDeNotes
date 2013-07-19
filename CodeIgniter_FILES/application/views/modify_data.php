@@ -100,8 +100,8 @@ switch($tableName){
 		
 		echo '<h5><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/students" title="Retour">Retour</a></h5>';
 		break;
-	case 'courses':
-		echo form_hidden('tableName','courses');
+	case 'courses_columns':
+		echo form_hidden('tableName','courses_columns');
 		echo form_hidden('id',$id);
 		
 		echo form_label("Nom : ");
@@ -112,8 +112,8 @@ switch($tableName){
 		echo form_input('shortname',$shortname);
 		echo '</br>';
 
-		echo form_label("Commentaire : ");
-		echo form_input('comment_group_id',$comment_group_id);
+		echo form_label("Commentaire (500 caractères maximum) : ");
+		echo form_textarea('description',$description);
 		echo '</br>';
 		
 	

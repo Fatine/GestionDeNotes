@@ -75,7 +75,7 @@
 	case 'students':
 		echo form_open('students');
 		break;
-	case 'courses' :
+	case 'courses_columns' :
 		echo form_open('courses');
 		break;
 	}

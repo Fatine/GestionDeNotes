@@ -29,7 +29,7 @@ class Modify extends CI_Controller
 		$new = array(
 			 'name'=>$_POST['name'],
 			 'shortname'=>$_POST['shortname'],
-			 'comment_group_id'=>$_POST['comment_group_id'],
+			 'description'=>$_POST['description'],
 			 );
 		//Insert
 		$this->bdd->add($_POST['tableName'],$new); 
@@ -45,12 +45,12 @@ class Modify extends CI_Controller
 				 'firstname'=>$_POST['firstname'],
 				 'email'=>$_POST['email'],
 		 		 );
-			case 'courses' :
+			case 'courses_columns' :
 				$data = array(
 				 'id'=>$_POST['id'],
 				 'name'=>$_POST['name'],
 				 'shortname'=>$_POST['shortname'],
-				 'comment_group_id'=>$_POST['comment_group_id'],
+				 'description'=>$_POST['description'],
 		 		 );
 		}
 		$this->bdd->update($_POST['tableName'],$data,$_POST['id']); 
@@ -154,10 +154,10 @@ class Modify extends CI_Controller
  */
 	//Add a course
 	function add_course(){
- 		$data['tableName']='courses';
+ 		$data['tableName']='courses_columns';
  		$data['name']='';
  		$data['shortname']='';
- 		$data['comment_group_id']='';
+ 		$data['description']='';
  		$this->load->view('add_course',$data);
 	}
 	//Add grades
@@ -165,21 +165,21 @@ class Modify extends CI_Controller
 	}
 	//Modify a course
 	function modify_course(){
- 		$query=$this->bdd->get_by_id('courses', $_POST['id']);
+ 		$query=$this->bdd->get_by_id('courses_columns', $_POST['id']);
 		$data = array(
-				 'tableName'=>'courses',
+				 'tableName'=>'courses_columns',
 				 'id'=>$_POST['id'],
 		 		 'name'=>$query->name,
 				 'shortname'=>$query->shortname,
-				 'comment_group_id'=>$query->comment_group_id,
+				 'description'=>$query->description,
 		 		 );
 		 $this->load->view('modify_data',$data);
 	}
 	//Delete a course
 	function delete_course(){
-		$data['tableName']='courses';
+		$data['tableName']='courses_columns';
  		$data['id']=$_POST['id'];
- 		$query=$this->bdd->get_by_id('courses', $_POST['id']);
+ 		$query=$this->bdd->get_by_id('courses_columns', $_POST['id']);
 		$this->load->view('delete',$data);
 	}
 }

@@ -97,7 +97,7 @@
    <TR >
 	  <TD align="center"><?php  echo $row->name  ?></TD>
 	  <TD align="center"><?php  echo $row->shortname ?></TD>
-	  <TD align="center"><?php  echo $row->comment_group_id ?></TD>
+	  <TD align="center"><?php  echo $row->description ?></TD>
 	  <TD><?php 
 	  	echo form_open('lists/see_courses');
 	  	echo form_hidden('id',$row->id);
@@ -129,7 +129,7 @@
 		 'DESC'=>'décroissant',
 		);
 	echo form_open('lists/order');
-	echo form_hidden('tableName','courses');
+	echo form_hidden('tableName','courses_columns');
 	echo form_label("Tri : ");
 	echo form_dropdown("orders",$orders);
 	echo form_label("Par ordre : ");
