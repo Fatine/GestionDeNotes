@@ -16,6 +16,12 @@ class Bdd extends CI_Model
 		$this->db->insert($tableName, $newUser); 
 	}
 	
+	//modifier quelqu'un
+	function update($tableName, $data, $id){
+		$this->db->update($tableName, $data, "id =".$id); 
+		$this->db->set($data);
+	}
+	
 	//supprimer quelqu'un
 	function delete($tableName, $id){
 		$this->db->query('DELETE FROM '.$tableName.' WHERE id = '.$id);

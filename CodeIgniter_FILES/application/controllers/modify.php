@@ -25,12 +25,29 @@ class Modify extends CI_Controller
 			 $this->bdd->add($_POST['tableName'],$newUser); 
     			 $this->load->view('submitted');
  		}else{
- 			echo '<p>Echec de l\'enregistrement</p>';
+ 			$data['title']='';
+			$data['lastname']='';
+			$data['firstname']='';
+			$data['email']='';
+		
+			$query = $this->db->query('SELECT * FROM students');
+			$data['query'] = $query;
+
+			$this->load->view( 'students_module', $data );
  		}
 	}
 	
-	function modify(){	
-	}
+	function modify_data(){
+		$user = array(
+				 'id'=>$_POST['id'],
+				 'title'=>$_POST['title'],
+		 		 'lastname'=>$_POST['lastname'],
+				 'firstname'=>$_POST['firstname'],
+				 'email'=>$_POST['email'],
+		 		 );
+		$this->bdd->update($_POST['tableName'],$user,$_POST['id']); 
+    		$this->load->view('submitted');
+ 	}
 	
 	function delete(){	
 		$this->bdd->delete($_POST['tableName'],$_POST['id']);
@@ -63,7 +80,16 @@ class Modify extends CI_Controller
 	
 	//Modify a student
 	function modify_student(){
-		 
+ 		$query=$this->bdd->get_by_id('students', $_POST['id']);
+		$user = array(
+				 'id'=>$_POST['id'],
+				 'title'=>$query->title,
+		 		 'lastname'=>$query->lastname,
+				 'firstname'=>$query->firstname,
+				 'email'=>$query->email,
+		 		 );
+		 $this->load->view('modify_data',$user);
+ 
 	}	
 	//Delete a student
 	function delete_student(){
