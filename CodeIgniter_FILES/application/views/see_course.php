@@ -67,31 +67,39 @@
 
 </head>
 <body>
-<h1>G&eacute;rer les &eacute;tudiants</h1>
-<h5><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/students" title="Retour"-->Retour</a></h5>
+<h5><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/courses" title="Retour"-->Retour</a></h5>
 
 <div id="content">
 
 <TABLE border="1px"> 
-  <CAPTION> Récapitulatif étudiant </CAPTION> 
+  <CAPTION> Récapitulatif UE <?php echo $ue ?> </CAPTION> 
   <TR> 
- <TH width="100px"> Année </TH> 
- <TH width="300px"> Ue </TH>
- <TH width="100px"> Note </TH>
- <TH width="100px"> Etat </TH>
+ <TH width="300px"> Nom Prénom </TH> 
+ <TH width="50px"> Td1 </TH>
+ <TH width="50px"> Td1_R </TH>
+ <TH width="50px"> Td2 </TH>
+ <TH width="50px"> Td2_R </TH>
+ <TH width="50px"> Exam </TH>
+ <TH width="50px"> Exam_R </TH>
+ 
+ 
+ <TH width="50px"> Moyenne </TH>
   </TR> 
 <?php
 		foreach ($query->result() as $row){
 ?>
 		   <TR >
-			  <TD align="center"><?php  echo $row->grades_year  ?></TD>
-			  <TD align="center"><?php  echo $row->name ?></TD>
-			  <TD align="center"><?php  echo $row->moyenne.'/20';   ?></TD>
-			  <TD align="center"><?php  if($row->moyenne<10){echo "DEF";}else{echo "ADM";}  ?></TD>
+			  <TD align="center"><?php echo $row->lastname.' '.$row->firstname; ?></TD>
+			  <TD align="center"><?php echo $row->td1.'/20'  ?></TD>
+			  <TD align="center"><?php echo $row->td1_r.'/20' ?></TD>
+			  <TD align="center"><?php echo $row->td2.'/20'  ?></TD>
+			  <TD align="center"><?php echo $row->td2_r.'/20' ?></TD>
+			  <TD align="center"><?php echo $row->exam.'/20'  ?></TD>
+			  <TD align="center"><?php echo $row->exam_r.'/20' ?></TD>
+			  <TD align="center"><?php echo 'calcul moyenne' ?></TD>
 		   </TR>
 <?php
 		}
-	
 ?> 
 </TABLE>
 

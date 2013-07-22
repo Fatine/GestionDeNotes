@@ -99,9 +99,9 @@
 	  <TD align="center"><?php  echo $row->shortname ?></TD>
 	  <TD align="center"><?php  echo $row->description ?></TD>
 	  <TD><?php 
-	  	echo form_open('lists/see_courses');
+	  	echo form_open('lists/see_course_grades');
 	  	echo form_hidden('id',$row->id);
-	  	echo form_submit('submit','Voir'); 
+	  	echo form_submit('submit','Voir/Ajouter des notes'); 
 	  	echo form_close(); ?></TD>
 	  <TD><?php 
 	  	echo form_open('modify/modify_course');

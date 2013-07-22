@@ -29,18 +29,29 @@ class Bdd extends CI_Model
 	
 	//voir les notes d'un étudiant
 	function student_grades($id){
-		$query=$this->db->query('SELECT * 
-						FROM grades g, students s, courses_columns c 
-						WHERE student_id='.$id.'
-							AND courses_columns_id=c.id');   
-		if ($query->num_rows() > 1){
-			return $query;
-		}else if ($query->num_rows() == 1){
-			$row=$query->row();
-			return $row;
-		}else{
-			return null;
-		}
+/*		$this->db->select('*');
+		$this->db->from('notes, students as s, courses_columns as c');
+		$this->db->where('s.id', $id);
+		$this->db->where('c.id', 'course_id');
+		$this->db->where('s.id', 'student_id');
+		*/
+		$query=$this->db->query('SELECT * FROM notes as n, courses_columns as c,students as s
+							where c.id=`course_id`
+							and s.id=`student_id`
+							and s.id='.$id);	
+		//$query = $this->db->get();
+		return $query;
+	}
+	
+	//voir l'état d'une ue
+	function course_students_grades($id){
+		$query=$this->db->query('SELECT DISTINCT * 
+						FROM students s,courses_columns c, notes n
+							WHERE c.id='.$id.'
+							AND c.id=n.course_id
+							AND s.id=n.student_id');
+						
+		return $query;
 	}
 	
 	//trier des données

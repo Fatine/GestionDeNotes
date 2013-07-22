@@ -66,7 +66,7 @@
 </head>
 <body>
 
-	<h2> Ajouter un étudiant </ h2>
+	<h2> Modifier les informations </ h2>
 <?php
 	echo '</br>';echo '</br>';
 

@@ -26,21 +26,19 @@ class Lists extends CI_Controller
 		$query=$this->bdd->student_grades($_POST['id']);
 		
 		$data['id']=$_POST['id'];
-		if($query!=null){
-			$data['query']=$query;
-			if($query->num_rows() >1 ){
-				$data['nbLignes']=1;
-			}else{
-				$data['nbLignes']='';
-			}
-		}else{
-			$data['nbLignes']=0;
+		if($query->num_rows() >1){
+			$data['nbLignes']=1;
 		}
+		$data['query']=$query;
       	$this->load->view('see',$data);
 	}	
 
 //list of courses grades
-function see_course_grades(){
-
+	function see_course_grades(){
+		$query=$this->bdd->course_students_grades($_POST['id']);
+		$name=$this->bdd->get_by_id('courses_columns', $_POST['id']);
+		$data['ue']=$name->name;
+		$data['query']=$query;
+      	$this->load->view('see_course',$data);
 	}
 }
