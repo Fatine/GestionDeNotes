@@ -25,6 +25,8 @@ Fonctionnalités demandées :
    - imprimer un PV pour chaque UE, avec tout les étudiants inscrits à l'UE, et leurs notes et moyennes
 
 Références :
+   - module pdf : 
+http://www.fpdf.org/
    - création formulaire inscription sans la validation :
 http://www.pensons-web.com/actualite/codeigniter-mise-en-place-dun-formulaire-dinscription-1ere-partie/
    - module users :
