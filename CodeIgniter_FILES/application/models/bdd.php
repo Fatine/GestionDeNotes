@@ -70,5 +70,63 @@ class Bdd extends CI_Model
 			return null;
 		}
 	}
+	
+	function calcul_moyennes(){
+		$query=$this->db->query('SELECT DISTINCT * FROM notes n');	
+		foreach($query->result() as $row){
+			//calcul des moyennes
+			if($row->td1_r!=null){
+				$td1=$row->td1_r;
+			}else{
+				$td1=$row->td1;
+			}
+			if($row->td2_r!=null){
+				$td2=$row->td2_r;
+			}else{
+				$td2=$row->td2;
+			}
+			if($row->exam_r!=null){
+				$exam=$row->exam_r;
+			}else{
+				$exam=$row->exam;
+			}
+			$moyenne_tmp=($td1+$td2+$exam)/3;
+			
+			//règles d'ajout de points :
+			switch($moyenne_tmp){
+				case ($moyenne_tmp <= 11):
+					    $moyenne_finale=$moyenne_tmp+2;
+					    break;
+			     case ($moyenne_tmp <= 16):
+					    $moyenne_finale=$moyenne_tmp+2.5;
+					    break;
+			     case ($moyenne_tmp <= 17):
+					    $moyenne_finale=$moyenne_tmp+2;
+					    break;
+			     case ($moyenne_tmp <= 18):
+					    $moyenne_finale=$moyenne_tmp+1.5;
+					    break;
+				case ($moyenne_tmp <= 19):
+					    $moyenne_finale=$moyenne_tmp+1;
+					    break;
+				case 19.5:
+					    $moyenne_finale=$moyenne_tmp+0.5;
+					    break;
+				default:
+					    $moyenne_finale=$moyenne_tmp;
+					    break;
+			}
+			$data = array(
+		          'moyenne_tmp' => $moyenne_tmp,
+		          'moyenne_finale' => $moyenne_finale,
+            	);
+			$this->db->where('student_id', $row->student_id);
+			$this->db->where('course_id', $row->course_id);
+			$this->db->where('grades_year', $row->grades_year);
+			
+			$this->db->update('notes', $data); 
+		}	
+		return $query;
+	}
 }
 

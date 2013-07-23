@@ -76,14 +76,15 @@
   <TR> 
  <TH width="300px"> Nom Prénom </TH> 
  <TH width="50px"> Td1 </TH>
- <TH width="50px"> Td1_R </TH>
+ <TH width="50px"> Td1 rattrapage </TH>
  <TH width="50px"> Td2 </TH>
- <TH width="50px"> Td2_R </TH>
- <TH width="50px"> Exam </TH>
- <TH width="50px"> Exam_R </TH>
+ <TH width="50px"> Td2 rattrapage </TH>
+ <TH width="50px"> Examen </TH>
+ <TH width="50px"> Exam rattrapage </TH>
  
  
- <TH width="50px"> Moyenne </TH>
+ <TH width="80px"> Moyenne temporaire </TH>
+ <TH width="80px"> Moyenne finale</TH>
   </TR> 
 <?php
 		foreach ($query->result() as $row){
@@ -96,15 +97,14 @@
 			  <TD align="center"><?php echo $row->td2_r.'/20' ?></TD>
 			  <TD align="center"><?php echo $row->exam.'/20'  ?></TD>
 			  <TD align="center"><?php echo $row->exam_r.'/20' ?></TD>
-			  <TD align="center"><?php echo 'calcul moyenne' ?></TD>
+			  <TD align="center"><?php echo $row->moyenne_tmp.'/20' ?></TD>
+			  <TD align="center"><?php echo $row->moyenne_finale.'/20' ?></TD>
 		   </TR>
 <?php
 		}
 ?> 
 </TABLE>
 
-ADM=admis 
-DEF=défaillant
 </div>
 
 </body>

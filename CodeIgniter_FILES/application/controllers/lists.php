@@ -35,6 +35,10 @@ class Lists extends CI_Controller
 
 //list of courses grades
 	function see_course_grades(){
+		//calcul des moyennes (avec rajouts de points):
+		$this->bdd->calcul_moyennes();
+				
+		//recupération des données
 		$query=$this->bdd->course_students_grades($_POST['id']);
 		$name=$this->bdd->get_by_id('courses_columns', $_POST['id']);
 		$data['ue']=$name->name;

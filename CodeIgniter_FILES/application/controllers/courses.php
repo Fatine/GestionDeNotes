@@ -13,5 +13,6 @@ class Courses extends CI_Controller {
 
 	     $this->load->view( 'courses', $data );
 	}
+	
 }
 

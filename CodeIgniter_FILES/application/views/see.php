@@ -86,8 +86,8 @@
 		   <TR >
 			  <TD align="center"><?php  echo $row->grades_year  ?></TD>
 			  <TD align="center"><?php  echo $row->name ?></TD>
-			  <TD align="center"><?php  echo $row->moyenne.'/20';   ?></TD>
-			  <TD align="center"><?php  if($row->moyenne<10){echo "DEF";}else{echo "ADM";}  ?></TD>
+			  <TD align="center"><?php  echo $row->moyenne_finale.'/20';   ?></TD>
+			  <TD align="center"><?php  if($row->moyenne_finale<10){echo "DEF";}else{echo "ADM";}  ?></TD>
 		   </TR>
 <?php
 		}
