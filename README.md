@@ -4,12 +4,12 @@ Date mise à jour : 16/07/2013
 
 En cours :
    - pagination (controller/lists.php, view/homepage.php) : souci : affichage de toutes les données sur chaque page
-   - création pdfs
+   - !!! création pdfs
 
 Ce qu'il faut faire (pas dans l'ordre):
-   - Créer une aide pour utiliser le site
-   - Créer un compte pour Gerald Delabre, un pour Stephane Pillet, un pour Fatna Merrouche 
-   - Créer un compte pour vincent ?
+   - !!! Créer une aide pour utiliser le site
+   - !!! Créer un compte pour Gerald Delabre, un pour Stephane Pillet, un pour Fatna Merrouche 
+   - !!! Créer un compte pour vincent ?
 
 Fonctionnalités demandées :
 ok   - insérer, supprimer, modifier des étudiants, des notes, des ues
