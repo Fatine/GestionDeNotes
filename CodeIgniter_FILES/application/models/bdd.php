@@ -70,7 +70,8 @@ class Bdd extends CI_Model
 			return null;
 		}
 	}
-	
+
+	//calculer les moyennes des ue	
 	function calcul_moyennes(){
 		$query=$this->db->query('SELECT DISTINCT * FROM notes n');	
 		foreach($query->result() as $row){
@@ -127,6 +128,33 @@ class Bdd extends CI_Model
 			$this->db->update('notes', $data); 
 		}	
 		return $query;
+	}	
+
+	//mettre à jour les notes d'une ue	
+	function update_grades($course_id,$nb,$data){
+		for($i = 0; $i < $nb; $i++){
+			$student=$_POST['student'.$i];
+			$grades_year=$_POST['gradesyear'.$i];
+			$td1=$_POST['td1'.$i];
+			$td1_r=$_POST['td1r'.$i];
+			$td2=$_POST['td2'.$i];
+			$td2_r=$_POST['td2r'.$i];
+			$exam=$_POST['exam'.$i];
+			$exam_r=$_POST['examr'.$i];
+		
+			$data = array(
+			     'td1' => $td1,
+			     'td1_r' => $td1_r,
+			     'td2' => $td2,
+			     'td2_r' => $td2_r,
+			     'exam' => $exam,
+			     'exam_r' => $exam_r,
+	       	);
+			$this->db->where('student_id', $student);
+			$this->db->where('course_id', $course_id);
+			$this->db->where('grades_year', $grades_year);
+			$this->db->update('notes', $data); 
+		}
 	}
 }
 

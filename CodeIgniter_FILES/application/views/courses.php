@@ -64,19 +64,6 @@
 		-webkit-box-shadow: 0 0 8px #D0D0D0;
 	}
 	</style>
-	
-	<SCRIPT language="Javascript">
-	function supprimer(id) {
-		window.location.href = 'http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/modify/delete_student';
-	}
-	function voir(id) {
-		window.location.href = 'http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/lists/see_student';
-	}
-	function modifier(id) {
-		window.location.href = 'http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/modify/modify_student';
-	}
-	</SCRIPT>
-
 </head>
 <body>
 <h1>G&eacute;rer les unit&eacute;s d'enseignement</h1>

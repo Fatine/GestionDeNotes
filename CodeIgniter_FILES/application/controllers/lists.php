@@ -42,6 +42,33 @@ class Lists extends CI_Controller
 		$query=$this->bdd->course_students_grades($_POST['id']);
 		$name=$this->bdd->get_by_id('courses_columns', $_POST['id']);
 		$data['ue']=$name->name;
+		$data['course_id']=$_POST['id'];
+		$data['query']=$query;
+      	$this->load->view('see_course',$data);
+	}
+//update courses
+	function update_course(){
+		for($i=0; $i < $_POST['nb']; $i++){
+			$notes['td1'.$i]=$_POST['td1'.$i];
+			$notes['td1r'.$i]=$_POST['td1r'.$i];
+			$notes['td2'.$i]=$_POST['td2'.$i];
+			$notes['td2r'.$i]=$_POST['td2r'.$i];
+			$notes['exam'.$i]=$_POST['exam'.$i];
+			$notes['examr'.$i]=$_POST['examr'.$i];
+			$notes['gradesyear'.$i]=$_POST['gradesyear'.$i];
+			$notes['student'.$i]=$_POST['student'.$i];	
+		}
+		//mise à jour des notes
+		$query=$this->bdd->update_grades($_POST['course_id'],$_POST['nb'],$notes);
+		$id=$_POST['course_id'];
+		
+		//calcul des moyennes (avec rajouts de points):
+		$this->bdd->calcul_moyennes();
+		//recupération des données
+		$query=$this->bdd->course_students_grades($_POST['course_id']);
+		$name=$this->bdd->get_by_id('courses_columns', $_POST['course_id']);
+		$data['ue']=$name->name;
+		$data['course_id']=$_POST['course_id'];
 		$data['query']=$query;
       	$this->load->view('see_course',$data);
 	}
