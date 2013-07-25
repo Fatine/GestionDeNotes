@@ -12,11 +12,11 @@ Ce qu'il faut faire (pas dans l'ordre):
    - !!! Créer un compte pour vincent ?
 
 Fonctionnalités demandées :
-ok   - insérer, supprimer, modifier des étudiants, des notes, des ues
-ok   - calculer des moyennes, ajouter automatiquement un certain nb de points pour une note (ex: j'ai 8, on rajoute 2 points)
-   - imprimer un relevé de notes pour un étudiant, contenant toutes ses ues passées avec la moyenne pour chacune
+   - OK insérer, supprimer, modifier des étudiants, des notes, des ues
+   - OK calculer des moyennes, ajouter automatiquement un certain nb de points pour une note (ex: j'ai 8, on rajoute 2 points)
+   - OK imprimer un relevé de notes pour un étudiant, contenant toutes ses ues passées avec la moyenne pour chacune
    - imprimer tout les relevé des notes des étudiants
-   - imprimer un PV pour chaque UE, avec tout les étudiants inscrits à l'UE, et leurs notes et moyennes
+   - imprimer un PV pour chaque UE, avec tout les étudiants inscrits à l'UE, et leurs moyennes
 
 Références :
    - module pdf : 
