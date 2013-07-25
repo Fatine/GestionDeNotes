@@ -5,6 +5,8 @@ Date mise à jour : 16/07/2013
 En cours :
    - pagination (controller/lists.php, view/homepage.php) : souci : affichage de toutes les données sur chaque page
    - !!! création pdfs
+   - suppression etudiant : le supprimer aussi de la liste de notes
+   - pour chaque tableau de notes par ue, mettre la possibilité de voir les années antérieures
 
 Ce qu'il faut faire (pas dans l'ordre):
    - !!! Créer une aide pour utiliser le site
@@ -12,11 +14,11 @@ Ce qu'il faut faire (pas dans l'ordre):
    - !!! Créer un compte pour vincent ?
 
 Fonctionnalités demandées :
-ok   - insérer, supprimer, modifier des étudiants, des notes, des ues
-ok   - calculer des moyennes, ajouter automatiquement un certain nb de points pour une note (ex: j'ai 8, on rajoute 2 points)
-   - imprimer un relevé de notes pour un étudiant, contenant toutes ses ues passées avec la moyenne pour chacune
+   - OK insérer, supprimer, modifier des étudiants, des notes, des ues
+   - OK calculer des moyennes, ajouter automatiquement un certain nb de points pour une note (ex: j'ai 8, on rajoute 2 points)
+   - OK imprimer un relevé de notes pour un étudiant, contenant toutes ses ues passées avec la moyenne pour chacune
    - imprimer tout les relevé des notes des étudiants
-   - imprimer un PV pour chaque UE, avec tout les étudiants inscrits à l'UE, et leurs notes et moyennes
+   - imprimer un PV pour chaque UE, avec tout les étudiants inscrits à l'UE, et leurs moyennes
 
 Références :
    - module pdf : 
