@@ -46,6 +46,32 @@ class Lists extends CI_Controller
 		$data['query']=$query;
       	$this->load->view('see_course',$data);
 	}
+//list of courses moyennes des élèves
+	function pv_ue(){
+		//calcul des moyennes (avec rajouts de points):
+		$this->bdd->calcul_moyennes();
+				
+		//recupération des données
+		switch($_POST['annee']){
+			case 'annee1' : $course1=1;$course2=2;$course3=3;    break;
+			case 'annee2' : $course1=4;$course2=5;$course3=6;    break;
+			case 'annee3' : $course1=7;$course2=8;$course3=9;    break;
+			case 'annee4' : $course1=10;$course2=11;$course3=12; break;
+			default : echo 'erreur';
+			
+		}
+		$name1=$this->bdd->get_by_id('courses_columns', $course1);
+		$name2=$this->bdd->get_by_id('courses_columns', $course2);
+		$name3=$this->bdd->get_by_id('courses_columns', $course3);
+		$data['ue1']=$name1->name;
+		$data['ue2']=$name2->name;
+		$data['ue3']=$name3->name;	
+		
+		$data['query1']=$this->bdd->course_students_grades($course1);
+		$data['query2']=$this->bdd->course_students_grades($course2);
+		$data['query3']=$this->bdd->course_students_grades($course3);
+      	$this->load->view('see_pv',$data);
+	}
 //update courses
 	function update_course(){
 		for($i=0; $i < $_POST['nb']; $i++){

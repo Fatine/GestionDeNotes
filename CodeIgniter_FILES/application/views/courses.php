@@ -71,29 +71,48 @@
 
 <div id="content">
 <a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/modify/add_course/">Ajouter une unit&eacute; d'enseignement</a>
+<?php
+		echo'</br></br>';
+	  	echo form_open('lists/pv_ue');
+	  	$annees = array(
+		 'annee1'=>'1ère année',
+		 'annee2'=>'2ème année',
+		 'annee3'=>'3ème année',
+		 'annee4'=>'4ème année',
+		);
+		echo form_label("Imprimer le PV de quelle année ? ");
+		echo form_dropdown("annee",$annees);
+	  	echo form_submit('submit','Imprimer le PV'); 
+	  	echo form_close();
+	  	
+		echo '</br>';	
+?>
+
+
 <TABLE border="1px"> 
-  <CAPTION> Tableau des UEs </CAPTION> 
   <TR> 
  <TH width="450px"> Nom </TH> 
- <TH width="100px"> Raccourci</TH>
- <TH width="200px"> Commentaires </TH>
+ <!--TH width="100px"> Raccourci</TH-->
+ <!--TH width="200px"> Commentaires </TH-->
   </TR> 
 <?php
+		  	
+		
 	foreach ($query->result() as $row){
 ?>
    <TR >
 	  <TD align="center"><?php  echo $row->name  ?></TD>
-	  <TD align="center"><?php  echo $row->shortname ?></TD>
-	  <TD align="center"><?php  echo $row->description ?></TD>
+	  <!--TD align="center"><?php  echo $row->shortname ?></TD-->
+	  <!--TD align="center"><?php  echo $row->description ?></TD-->
 	  <TD><?php 
 	  	echo form_open('lists/see_course_grades');
 	  	echo form_hidden('id',$row->id);
-	  	echo form_submit('submit','Voir/Ajouter des notes'); 
+	  	echo form_submit('submit','Voir les notes'); 
 	  	echo form_close(); ?></TD>
 	  <TD><?php 
 	  	echo form_open('modify/modify_course');
 	  	echo form_hidden('id',$row->id);
-	  	echo form_submit('submit','Modifier'); 
+	  	echo form_submit('submit','Modifier les infos'); 
 	  	echo form_close(); ?></TD>
 	  <TD><?php 
 	  	echo form_open('modify/delete_course');

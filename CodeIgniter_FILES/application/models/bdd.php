@@ -65,7 +65,8 @@ class Bdd extends CI_Model
 							WHERE c.id='.$id.'
 							AND c.id=n.course_id
 							AND s.id=n.student_id
-							AND c.id=i.course_id');		
+							AND c.id=i.course_id
+							GROUP BY s.lastname');		
 		return $query;
 	}
 	
