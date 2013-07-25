@@ -8,21 +8,36 @@ class Modify extends CI_Controller
 		$this->load->model('bdd');
 	}
 	
-	function find($user_attributes){
-		
-		return $user_id;
-	}
 	//ajouter un etudiant, un professeur, un administrateur
 	function add(){
-		$newUser = array(
-			 'title'=>$_POST['title'],
-			 'lastname'=>$_POST['lastname'],
-			 'firstname'=>$_POST['firstname'],
-			 'email'=>$_POST['email'],
-			 'diploma'=>'M2DPSSA',
+		$data1 = array(
+			 'title'    => $_POST['title'],
+			 'lastname' => $_POST['lastname'],
+			 'firstname'=> $_POST['firstname'],
+			 'email'    => $_POST['email'],
+			 'diploma'  => '',
 			 );
-		//Insert
-		$this->bdd->add($_POST['tableName'],$newUser); 
+		//Insert		
+		$this->bdd->add($_POST['tableName1'],$data1); 
+		
+		//pour ajouter l'étudiant dans les tableaux de notes correspondants
+//notes(course_id, student_id, td1, td1_r, td2, td2_r, exam, exam_r, moyenne_tmp, moyenne_finale, grades_year)
+		if($_POST['tableName1']=='students'){
+			$data=$_POST['ue'];
+			$student_id=$this->db->insert_id();
+			
+			foreach($data as $row){
+				$query=$this->bdd->get_ue_id($row);
+				foreach($query->result() as $course_id){
+					$data2 = array(
+						'course_id'   => $course_id->id,
+						'student_id'  => $student_id,
+						'grades_year' => $_POST['annee'],
+					);
+					$this->bdd->add('notes',$data2);
+				}
+			}
+		}
     		$this->load->view('submitted');
  	}
  	//ajouter une ue
@@ -72,11 +87,15 @@ class Modify extends CI_Controller
  */
 	//Add a student
 	function add_student(){
- 		$data['tableName']='students';
+ 		$data['tableName1']='students';
  		$data['title']='';
  		$data['firstname']='';
  		$data['lastname']='';
  		$data['email']='';
+ 		$data['tablename2']='notes';
+ 		
+		$data['query'] = $this->db->query('SELECT * FROM courses_columns');
+
  		$this->load->view('add_student',$data);
 	}	
 	

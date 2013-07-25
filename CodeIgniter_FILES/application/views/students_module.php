@@ -74,6 +74,13 @@
 
 <a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/modify/add_student/">Ajouter un &eacute;tudiant</a>
 
+
+<?php 
+  //	echo form_open('imprimer/bilan_all_students');	  	
+  //	echo form_submit('submit','Imprimer les bilans de notes de tout les étudiants'); 
+  //	echo form_close(); 
+?>
+
 <TABLE border="1px"> 
   <CAPTION> Tableau des étudiants </CAPTION> 
   <TR> 

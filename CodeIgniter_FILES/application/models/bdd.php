@@ -11,6 +11,21 @@ class Bdd extends CI_Model
 		
 	}
 	
+	//trouver l'id d'une ue 
+	function get_ue_id($name){
+		return $this->db->query('SELECT id 
+								FROM courses_columns 
+								WHERE name = "'.$name.'"'); 
+	}
+	
+	//trouver l'id d'un etudiant
+	function get_student_id($lastname, $firstname){
+		return $this->db->query('SELECT id 
+								FROM students 
+								WHERE lastname = "'.$lastname.'" 
+								AND firstname = "'.$firstname.'"'); 
+	}
+	
 	//ajouter quelqu'un
 	function add($tableName, $newUser){
 		$this->db->insert($tableName, $newUser); 
@@ -46,11 +61,11 @@ class Bdd extends CI_Model
 	//voir l'état d'une ue
 	function course_students_grades($id){
 		$query=$this->db->query('SELECT DISTINCT * 
-						FROM students s,courses_columns c, notes n
+						FROM students s,courses_columns c, notes n, inscription i
 							WHERE c.id='.$id.'
 							AND c.id=n.course_id
-							AND s.id=n.student_id');
-						
+							AND s.id=n.student_id
+							AND c.id=i.course_id');		
 		return $query;
 	}
 	
@@ -58,6 +73,19 @@ class Bdd extends CI_Model
 	function order($tableName, $order, $AscDesc){
 		$query=$this->db->select()->from($tableName)->order_by($order,$AscDesc);
 		return $query->get();
+	}
+	
+	
+	//recuperer tout les etudiants
+	function get_all_ues(){
+		$query=$this->db->query('SELECT DISTINCT * FROM students');
+		return $query;	
+	}
+	
+	//recuperer toutes les ues
+	function get_all_students(){
+		$query=$this->db->query('SELECT DISTINCT * FROM courses_columns');
+		return $query;	
 	}
 	
 	//récupérer les données de quelqu'un par son id
@@ -76,17 +104,17 @@ class Bdd extends CI_Model
 		$query=$this->db->query('SELECT DISTINCT * FROM notes n');	
 		foreach($query->result() as $row){
 			//calcul des moyennes
-			if($row->td1_r!=null){
+			if($row->td1_r){
 				$td1=$row->td1_r;
 			}else{
 				$td1=$row->td1;
 			}
-			if($row->td2_r!=null){
+			if($row->td2_r){
 				$td2=$row->td2_r;
 			}else{
 				$td2=$row->td2;
 			}
-			if($row->exam_r!=null){
+			if($row->exam_r){
 				$exam=$row->exam_r;
 			}else{
 				$exam=$row->exam;
@@ -95,6 +123,9 @@ class Bdd extends CI_Model
 			
 			//règles d'ajout de points :
 			switch($moyenne_tmp){
+				case ($moyenne_tmp <= 8):
+					    $moyenne_finale=$moyenne_tmp;
+					    break;
 				case ($moyenne_tmp <= 11):
 					    $moyenne_finale=$moyenne_tmp+2;
 					    break;
