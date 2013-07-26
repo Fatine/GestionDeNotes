@@ -72,21 +72,25 @@
 
 <TABLE border="1px"> 
   <TR> 
+  
+ <TH width="10px"> Numéro étudiant </TH> 
  <TH width="300px"> Nom Prénom </TH> 
- <TH width="120px"> <?php echo $ue1 ?> </TH>
- <TH width="120px"> <?php echo $ue2 ?> </TH>
- <TH width="120px"> <?php echo $ue3 ?> </TH>
+ <TH width="120px"> <?php echo $name1 ?> </TH>
+ <TH width="120px"> <?php echo $name2  ?> </TH>
+ <TH width="120px"> <?php echo $name3  ?> </TH>
   </TR> 
+		  
 <?php
-		foreach ($query1->result() as $row1){
+	for($i=1;$i<$nb;$i++){
 ?>
-		   <TR >
-			  <TD align="center"><?php echo $row1->lastname.' '.$row1->firstname; ?></TD>
-			  <TD align="center"><?php echo $row1->moyenne_finale.'/20' ?></TD>
-			  <TD align="center"><?php echo '/20' ?></TD>
-			  <TD align="center"><?php echo '/20' ?></TD>
-			  
-		   </TR>
+		 <TR >
+			  <TD align="center"><?php echo $numetu[$i] ?></TD>
+			  <TD align="center"><?php echo $lastname[$i].' '.$firstname[$i]; ?></TD>
+			  <TD align="center"><?php echo $moyenne1[$i].'/20' ?></TD>
+			  <TD align="center"><?php echo $moyenne2[$i].'/20' ?></TD>
+			  <TD align="center"><?php echo $moyenne3[$i].'/20' ?></TD>		  
+		
+  		</TR>	 
 <?php		
 		}
 ?> 

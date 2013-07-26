@@ -77,17 +77,23 @@ class Bdd extends CI_Model
 	}
 	
 	
-	//recuperer tout les etudiants
+	//recuperer tout les ues
 	function get_all_ues(){
+		$query=$this->db->query('SELECT DISTINCT * FROM courses_columns');
+		return $query;	
+	}
+	
+	//recuperer toutes les etudiants
+	function get_all_students(){
 		$query=$this->db->query('SELECT DISTINCT * FROM students');
 		return $query;	
 	}
 	
-	//recuperer toutes les ues
-	function get_all_students(){
-		$query=$this->db->query('SELECT DISTINCT * FROM courses_columns');
-		return $query;	
-	}
+	//récupérer nom prenom étudiant, moyenne par ue, par année
+	function get_moyennes_by_year($course1,$course2,$course3){
+		
+		
+	}	
 	
 	//récupérer les données de quelqu'un par son id
 	function get_by_id($tableName, $id){

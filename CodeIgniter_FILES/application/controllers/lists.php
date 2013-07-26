@@ -50,27 +50,69 @@ class Lists extends CI_Controller
 	function pv_ue(){
 		//calcul des moyennes (avec rajouts de points):
 		$this->bdd->calcul_moyennes();
-				
 		//recupération des données
+     	$query=$this->db->query('SELECT DISTINCT id,lastname,firstname,numero_etu FROM students order by lastname');
+		foreach($query->result() as $row){
+			$lastname[$row->id]=$row->lastname;
+			$firstname[$row->id]=$row->firstname;
+			$numetu[$row->id]=$row->numero_etu;
+		}
+		$nb=$query->num_rows();
+		$query=$this->db->query('SELECT DISTINCT course_id,moyenne_finale,id 
+							FROM students,notes 						
+							where student_id=id 
+							ORDER BY lastname');
+		foreach($query->result() as $row){
+			switch($row->course_id){
+				case 1 : $ue1[$row->id]=$row->moyenne_finale; break;
+				case 2 : $ue2[$row->id]=$row->moyenne_finale; break;
+				case 3 : $ue3[$row->id]=$row->moyenne_finale; break;
+				case 4 : $ue4[$row->id]=$row->moyenne_finale; break;
+				case 5 : $ue5[$row->id]=$row->moyenne_finale; break;
+				case 6 : $ue6[$row->id]=$row->moyenne_finale; break;
+				case 7 : $ue7[$row->id]=$row->moyenne_finale; break;
+				case 8 : $ue8[$row->id]=$row->moyenne_finale; break;
+				case 9 : $ue9[$row->id]=$row->moyenne_finale; break;
+				case 10 : $ue10[$row->id]=$row->moyenne_finale; break;
+				case 11 : $ue11[$row->id]=$row->moyenne_finale; break;
+				case 12 : $ue12[$row->id]=$row->moyenne_finale; break;
+			};
+		}
+		
+		$data['lastname']=$lastname;
+		$data['firstname']=$firstname;
+		$data['numetu']=$numetu;
+		
 		switch($_POST['annee']){
-			case 'annee1' : $course1=1;$course2=2;$course3=3;    break;
-			case 'annee2' : $course1=4;$course2=5;$course3=6;    break;
-			case 'annee3' : $course1=7;$course2=8;$course3=9;    break;
-			case 'annee4' : $course1=10;$course2=11;$course3=12; break;
-			default : echo 'erreur';
-			
+			case 'annee1' : $course1=1;$course2=2;$course3=3;    
+				$data['moyenne1']=$ue1;
+				$data['moyenne2']=$ue2;
+				$data['moyenne3']=$ue3;
+				break;
+			case 'annee2' : $course1=4;$course2=5;$course3=6;
+				$data['moyenne1']=$ue4;
+				$data['moyenne2']=$ue5;
+				$data['moyenne3']=$ue6;  
+				break;
+			case 'annee3' : $course1=7;$course2=8;$course3=9;
+				$data['moyenne1']=$ue7;
+				$data['moyenne2']=$ue8;
+				$data['moyenne3']=$ue9;   
+				break;
+			case 'annee4' : $course1=10;$course2=11;$course3=12;
+				$data['moyenne1']=$ue10;
+				$data['moyenne2']=$ue11;
+				$data['moyenne3']=$ue12;
+				break;
 		}
 		$name1=$this->bdd->get_by_id('courses_columns', $course1);
 		$name2=$this->bdd->get_by_id('courses_columns', $course2);
 		$name3=$this->bdd->get_by_id('courses_columns', $course3);
-		$data['ue1']=$name1->name;
-		$data['ue2']=$name2->name;
-		$data['ue3']=$name3->name;	
-		
-		$data['query1']=$this->bdd->course_students_grades($course1);
-		$data['query2']=$this->bdd->course_students_grades($course2);
-		$data['query3']=$this->bdd->course_students_grades($course3);
-      	$this->load->view('see_pv',$data);
+		$data['name1']=$name1->name;
+		$data['name2']=$name2->name;
+		$data['name3']=$name3->name;
+		$data['nb']=$nb;
+     	$this->load->view('see_pv',$data);
 	}
 //update courses
 	function update_course(){

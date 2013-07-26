@@ -116,7 +116,16 @@
 	  	echo form_close(); ?></TD>
 	  <TD><?php 
 	  	echo form_open('modify/delete_course');
-	  	echo form_hidden('id',$row->id);	  	
+	  	echo form_hidden('id',$row->id);
+	  //	<input type="image" src="image/bouton.gif" border="0" name="submit" alt="Go">	
+	  	$data = array(
+		    'name'        => 'Supprimer',
+		    'id'          => 'newsletter',
+		    'value'       => 'accept',
+		    'checked'     => TRUE,
+		    'style'       => 'margin:10px',
+		    );
+  	
 	  	echo form_submit('submit','Supprimer'); 
 	  	echo form_close(); ?></TD>
    </TR>
