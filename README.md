@@ -5,7 +5,6 @@ Date mise à jour : 16/07/2013
 En cours :
    - pagination (controller/lists.php, view/homepage.php) : souci : affichage de toutes les données sur chaque page
    - !!! création pdfs
-   - suppression etudiant : le supprimer aussi de la liste de notes
    - pour chaque tableau de notes par ue, mettre la possibilité de voir les années antérieures
 
 Ce qu'il faut faire (pas dans l'ordre):
