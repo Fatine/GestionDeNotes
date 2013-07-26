@@ -39,7 +39,10 @@ class Bdd extends CI_Model
 	
 	//supprimer quelqu'un
 	function delete($tableName, $id){
-		$this->db->query('DELETE FROM '.$tableName.' WHERE id = '.$id);   
+		$this->db->query('DELETE FROM '.$tableName.' WHERE id = '.$id);  
+		if($tableName=='students'){
+		$this->db->query('DELETE FROM notes WHERE student_id = '.$id);  
+		} 
 	}
 	
 	//voir les notes d'un étudiant

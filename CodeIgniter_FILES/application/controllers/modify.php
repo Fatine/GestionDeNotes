@@ -116,22 +116,7 @@ class Modify extends CI_Controller
 	function delete_student(){
 		$data['tableName']='students';
  		$data['id']=$_POST['id'];
- 		$query=$this->bdd->get_by_id('students', $_POST['id']);
- 		if($query!=null){
-	 		$data['nom']=$query->lastname;
-	 		$data['prenom']=$query->firstname;
-			$this->load->view('delete',$data);
-		}else{
-			$data['title']='';
-			$data['lastname']='';
-			$data['firstname']='';
-			$data['email']='';
-		
-			$query = $this->db->query('SELECT * FROM students');
-			$data['query'] = $query;
-
-			$this->load->view( 'students_module', $data );
-		}
+		$this->load->view('delete',$data);
 	}
 
 
