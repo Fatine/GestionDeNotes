@@ -18,7 +18,7 @@ Fonctionnalités demandées :
    - OK calculer des moyennes, ajouter automatiquement un certain nb de points pour une note (ex: j'ai 8, on rajoute 2 points)
    - OK imprimer un relevé de notes pour un étudiant, contenant toutes ses ues passées avec la moyenne pour chacune
    - imprimer tout les relevé des notes des étudiants
-   - imprimer un PV pour chaque UE, avec tout les étudiants inscrits à l'UE, et leurs moyennes
+   - OK imprimer un PV pour chaque UE, avec tout les étudiants inscrits à l'UE, et leurs moyennes
 
 Références :
    - module pdf : 
