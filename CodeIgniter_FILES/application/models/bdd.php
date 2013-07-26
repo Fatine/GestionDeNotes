@@ -47,14 +47,9 @@ class Bdd extends CI_Model
 	
 	//voir les notes d'un étudiant
 	function student_grades($id){
-/*		$this->db->select('*');
-		$this->db->from('notes, students as s, courses_columns as c');
-		$this->db->where('s.id', $id);
-		$this->db->where('c.id', 'course_id');
-		$this->db->where('s.id', 'student_id');
-		*/
 		$query=$this->db->query('SELECT * FROM notes as n, courses_columns as c,students as s
 							where c.id=`course_id`
+							and n.moyenne_finale!=0
 							and s.id=`student_id`
 							and s.id='.$id);	
 		//$query = $this->db->get();

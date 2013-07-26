@@ -29,6 +29,7 @@ class Lists extends CI_Controller
 		if($query->num_rows() >1){
 			$data['nbLignes']=1;
 		}
+		
 		$data['query']=$query;
       	$this->load->view('see',$data);
 	}	
