@@ -1,3 +1,6 @@
+<?php
+ini_set("display_errors",0);error_reporting(0);
+?>
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 class Lists extends CI_Controller
@@ -24,14 +27,19 @@ class Lists extends CI_Controller
 //list of students grades
 	function see_student_grades(){
 		$query=$this->bdd->student_grades($_POST['id']);
-		
+		$name= $this->bdd->get_student_name($_POST['id']);
+		$row=$name->row(); 
+	
 		$data['id']=$_POST['id'];
+		$data['numero_etu']=$row->numero_etu;
+		$data['lastname']=$row->lastname;
+		$data['firstname']=$row->firstname;
 		if($query->num_rows() >1){
 			$data['nbLignes']=1;
 		}
 		
 		$data['query']=$query;
-      	$this->load->view('see',$data);
+      	$this->load->view('bilan_students',$data);
 	}	
 
 //list of courses grades
@@ -49,12 +57,13 @@ class Lists extends CI_Controller
 		$data['query']=$query;
       	$this->load->view('see_course',$data);
 	}
+
 //list of courses moyennes des élèves
 	function pv_ue(){
 		//calcul des moyennes (avec rajouts de points):
 		$this->bdd->calcul_moyennes();
 		//recupération des données
-     	$query=$this->db->query('SELECT DISTINCT id,lastname,firstname,numero_etu FROM students order by lastname');
+     	$query=$this->db->query('SELECT DISTINCT id,lastname,firstname,numero_etu FROM students order by numero_etu');
 		foreach($query->result() as $row){
 			$lastname[$row->id]=$row->lastname;
 			$firstname[$row->id]=$row->firstname;
@@ -64,10 +73,11 @@ class Lists extends CI_Controller
 		$nb=$query->num_rows();
 		$query2=$this->db->query('SELECT DISTINCT course_id,moyenne_finale,id 
 							FROM students,notes 						
-							where student_id=id 
-							ORDER BY lastname');
+							where student_id=id
+							AND grades_year='.$_POST['annee_scolaire'].' 
+							ORDER BY numero_etu');
 		
-		//on crée des tableaux contenant dans l'ordre des noms de familles les notes des étudiants
+		//on crée des tableaux contenant dans l'ordre des numeros etudiants les notes des étudiants
 		foreach($query2->result() as $row){
 			switch($row->course_id){
 				case 1 : $ue1[$row->id]=$row->moyenne_finale; break;

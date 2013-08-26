@@ -73,16 +73,25 @@
 <a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/modify/add_course/">Ajouter une unit&eacute; d'enseignement</a>
 <?php
 		echo'</br></br>';
-	  	echo form_open('lists/pv_ue');
-	  	$annees = array(
+	  	$annees_cursus = array(
 		 'annee1'=>'1ère année',
 		 'annee2'=>'2ème année',
 		 'annee3'=>'3ème année',
 		 'annee4'=>'4ème année',
 		);
-		echo form_label("Imprimer le PV de quelle année ? ");
-		echo form_dropdown("annee",$annees);
-	  	echo form_submit('submit','Imprimer le PV'); 
+	  	$annee_scolaire = array(
+		 '2009'=>'2009',
+		 '2010'=>'2010',
+		 '2011'=>'2011',
+		 '2012'=>'2012',
+		 '2013'=>'2013',
+		);
+	  	echo form_open('lists/pv_ue');
+		echo form_label("Version imprimable de quelle année du cursus ? ");
+		echo form_dropdown("annee",$annees_cursus);
+		echo form_label("De quelle année scolaire ? ");
+		echo form_dropdown("annee_scolaire",$annee_scolaire);
+	  	echo form_submit('submit','Créer le PV'); 
 	  	echo form_close();
 	  	
 		echo '</br>';	
@@ -92,8 +101,6 @@
 <TABLE border="1px"> 
   <TR> 
  <TH width="450px"> Nom </TH> 
- <!--TH width="100px"> Raccourci</TH-->
- <!--TH width="200px"> Commentaires </TH-->
   </TR> 
 <?php
 		  	
@@ -118,15 +125,6 @@
 	  <TD><?php 
 	  	echo form_open('modify/delete_course');
 	  	echo form_hidden('id',$row->id);
-	  //	<input type="image" src="image/bouton.gif" border="0" name="submit" alt="Go">	
-	  /*	$data = array(
-		    'name'        => 'Supprimer',
-		    'id'          => 'newsletter',
-		    'value'       => 'accept',
-		    'checked'     => TRUE,
-		    'style'       => 'margin:10px',
-		    );
-  	*/
 	  	echo form_submit('submit','Supprimer'); 
 	  	echo form_close(); ?></TD>
    </TR>

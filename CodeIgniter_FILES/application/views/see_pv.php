@@ -1,4 +1,6 @@
-
+<?php
+ini_set("display_errors",0);error_reporting(0);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -81,12 +83,12 @@
   </TR> 
 		  
 <?php
-	for($i=1;$i<$nb;$i++){
+	for($i=1;$i<$nb+1;$i++){
 ?>
 		 <TR >
 			  <TD align="center"><?php echo $numetu[$i] ?></TD>
 			  <TD align="center"><?php echo $lastname[$i].' '.$firstname[$i]; ?></TD>
-			  <TD align="center"><?php if($moyenne1[$i]!=null){echo $moyenne1[$i].'/20';}else{echo '';} ?></TD>
+			  <TD align="center"><?php echo $moyenne1[$i].'/20' ?></TD>
 			  <TD align="center"><?php echo $moyenne2[$i].'/20' ?></TD>
 			  <TD align="center"><?php echo $moyenne3[$i].'/20' ?></TD>		  
 		

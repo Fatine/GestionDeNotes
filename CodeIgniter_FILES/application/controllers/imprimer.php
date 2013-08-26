@@ -12,7 +12,7 @@ class Imprimer extends CI_Controller {
 	
 	public function index( ){
 		
-		$pdfFilePath = FCPATH."/application/views/";	 
+		$pdfFilePath = FCPATH.'/application/views/';	 
 		if (file_exists($pdfFilePath) == FALSE){/*
 		    $html = $this->load->view('see', $data, true); // render the view into HTMLs 
 		    $pdf = $this->pdf->load();
@@ -22,6 +22,7 @@ class Imprimer extends CI_Controller {
 	}
 	
 	function bilan_all_students(){
+		$pdfFilePath = FCPATH.'application/views/';	 
 		$query=$this->bdd->get_all_students();
 		
 		//data = notes de l'étudiant + nom + prenom +...

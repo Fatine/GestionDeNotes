@@ -76,9 +76,9 @@
 
 
 <?php 
-  //	echo form_open('imprimer/bilan_all_students');	  	
-  //	echo form_submit('submit','Imprimer les bilans de notes de tout les étudiants'); 
-  //	echo form_close(); 
+  	echo form_open('imprimer/bilan_all_students');	  	
+  	echo form_submit('submit','Imprimer les bilans de notes de tout les étudiants'); 
+  	echo form_close(); 
 ?>
 
 <TABLE border="1px"> 

@@ -88,7 +88,24 @@
  <TH width="80px"> Moyenne finale</TH>
   </TR> 
 <?php
-$i=0;
+
+	$years = array(
+			 '2009'=>'2009',
+			 '2010'=>'2010',
+			 '2011'=>'2011',
+			 '2012'=>'2012',
+			);
+	echo form_open('lists/see_course_grades');
+	echo form_hidden('tableName','courses_columns');
+	echo form_label("Choix de l'année  : ");
+	echo form_dropdown('year',$years);
+	echo form_hidden('id',$course_id);
+	echo form_submit("submit","Afficher les notes");
+	echo form_close();
+	
+		$i=0;
+	  	echo '</br>';
+	  	echo '</br>';
 		echo form_open('lists/update_course');
 		foreach ($query->result() as $row){
 ?>
@@ -124,22 +141,8 @@ $i=0;
 		}
 		echo form_hidden('course_id',$course_id);
 		echo form_hidden('nb',$i);
-		echo form_submit('submit','Enregistrer'); 
+		echo form_submit('submit','Enregistrer les modifications'); 
 	  	echo form_close();
-
-$years = array(
-		 '2009'=>'2009',
-		 '2010'=>'2010',
-		 '2011'=>'2011',
-		 '2012'=>'2012',
-		);
-echo form_open('lists/see_course_grades');
-echo form_hidden('tableName','courses_columns');
-echo form_label("Choix de l'année  : ");
-echo form_dropdown('year',$years);
-echo form_hidden('id',$course_id);
-echo form_submit("submit","Afficher les notes");
-echo form_close();
 ?> 
 </TABLE>
 
