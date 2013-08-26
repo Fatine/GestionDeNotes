@@ -22,4 +22,4 @@ Fonctionnalités demandées :
 
 Références :
    - module pdf : 
-http://www.mpdf1.com/mpdf/index.php   - création formulaire inscription sans la validation :
+http://www.mpdf1.com/mpdf/index.php
