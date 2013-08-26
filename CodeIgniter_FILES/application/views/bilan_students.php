@@ -94,8 +94,6 @@
 ?> 
 </TABLE>
 
-ADM=admis 
-DEF=défaillant
 </div>
 
 </body>

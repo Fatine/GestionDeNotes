@@ -46,7 +46,9 @@ class Lists extends CI_Controller
 //list of all students grades
 	function see_students_grades(){
 		$query=$this->bdd->get_all_students();
-		$i=0;
+		$i=1;
+		$pdf = $this->pdf->load();
+			
 		foreach($query->result() as $row){
 			$query=$this->bdd->student_grades($row->id);
 			$data['id']=$row->id;
@@ -54,15 +56,15 @@ class Lists extends CI_Controller
 			$data['lastname']=$row->lastname;
 			$data['firstname']=$row->firstname;
 			$data['query']=$query;
-			$html[$i]=$this->load->view('bilan_students',$data);
+			$html=$this->load->view('bilan_students',$data, true);
+			 
 			
-			$pdfFilePath = FCPATH.'application/views/';	 
-			
-			$tmp = $this->pdf->load();
-			$tmp->WriteHTML($html[$i]); // write the HTML into the PDF
-			$tmp->Output($pdfFilePath.'bilan.pdf', 'F'); // save to file because we can
+			$pdf->WriteHTML($html); // write the HTML into the PDF
+			//$pdf->WriteHTML('hello'); // write the HTML into the PDF
+			$pdf->AddPage();
 			$i++;
 		}
+		$pdf->Output(); // save to file because we can
 		
 	}	
 	
