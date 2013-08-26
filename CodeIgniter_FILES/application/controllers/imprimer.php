@@ -28,9 +28,6 @@ class Imprimer extends CI_Controller {
 		//data = notes de l'étudiant + nom + prenom +...
 		foreach($query->result() as $row){
 			$query=$this->bdd->student_grades($row->id);
-			if($query->num_rows() >1){
-				$data['nbLignes']=1;
-			}
 			$data['query']=$query;
 			$data['id']=$row->id;
 			

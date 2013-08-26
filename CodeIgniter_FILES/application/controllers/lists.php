@@ -10,8 +10,9 @@ class Lists extends CI_Controller
 		parent::__construct();
 
 		$this->load->helper("url");
+		$this->load->model('bdd');
+		$this->load->library('pdf');
 		$this->load->library("pagination");
-		$this->load->model("bdd");
 	}
 
 //ordering
@@ -24,7 +25,7 @@ class Lists extends CI_Controller
 			 $data['query'] = $query;
     			 $this->load->view('students_module',$data);
 	}
-//list of students grades
+//list of student grades
 	function see_student_grades(){
 		$query=$this->bdd->student_grades($_POST['id']);
 		$name= $this->bdd->get_student_name($_POST['id']);
@@ -41,7 +42,30 @@ class Lists extends CI_Controller
 		$data['query']=$query;
       	$this->load->view('bilan_students',$data);
 	}	
-
+	
+//list of all students grades
+	function see_students_grades(){
+		$query=$this->bdd->get_all_students();
+		$i=0;
+		foreach($query->result() as $row){
+			$query=$this->bdd->student_grades($row->id);
+			$data['id']=$row->id;
+			$data['numero_etu']=$row->numero_etu;
+			$data['lastname']=$row->lastname;
+			$data['firstname']=$row->firstname;
+			$data['query']=$query;
+			$html[$i]=$this->load->view('bilan_students',$data);
+			
+			$pdfFilePath = FCPATH.'application/views/';	 
+			
+			$tmp = $this->pdf->load();
+			$tmp->WriteHTML($html[$i]); // write the HTML into the PDF
+			$tmp->Output($pdfFilePath.'bilan.pdf', 'F'); // save to file because we can
+			$i++;
+		}
+		
+	}	
+	
 //list of courses grades
 	function see_course_grades(){
 		//calcul des moyennes (avec rajouts de points):

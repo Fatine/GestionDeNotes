@@ -76,7 +76,7 @@
 
 
 <?php 
-  	echo form_open('imprimer/bilan_all_students');	  	
+  	echo form_open('lists/see_students_grades');	  	
   	echo form_submit('submit','Imprimer les bilans de notes de tout les étudiants'); 
   	echo form_close(); 
 ?>
