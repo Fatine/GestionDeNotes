@@ -38,10 +38,12 @@ class Lists extends CI_Controller
 	function see_course_grades(){
 		//calcul des moyennes (avec rajouts de points):
 		$this->bdd->calcul_moyennes();
-				
+		
 		//recupération des données
-		$query=$this->bdd->course_students_grades($_POST['id']);
+		$query=$this->bdd->course_students_grades($_POST['id'],$_POST['year']);
 		$name=$this->bdd->get_by_id('courses_columns', $_POST['id']);
+		
+		if($_POST['year']!=0){ $data['year']=$_POST['year']; }
 		$data['ue']=$name->name;
 		$data['course_id']=$_POST['id'];
 		$data['query']=$query;
@@ -58,12 +60,15 @@ class Lists extends CI_Controller
 			$firstname[$row->id]=$row->firstname;
 			$numetu[$row->id]=$row->numero_etu;
 		}
+		
 		$nb=$query->num_rows();
-		$query=$this->db->query('SELECT DISTINCT course_id,moyenne_finale,id 
+		$query2=$this->db->query('SELECT DISTINCT course_id,moyenne_finale,id 
 							FROM students,notes 						
 							where student_id=id 
 							ORDER BY lastname');
-		foreach($query->result() as $row){
+		
+		//on crée des tableaux contenant dans l'ordre des noms de familles les notes des étudiants
+		foreach($query2->result() as $row){
 			switch($row->course_id){
 				case 1 : $ue1[$row->id]=$row->moyenne_finale; break;
 				case 2 : $ue2[$row->id]=$row->moyenne_finale; break;
@@ -84,6 +89,7 @@ class Lists extends CI_Controller
 		$data['firstname']=$firstname;
 		$data['numetu']=$numetu;
 		
+		//pour chaque année, on récupère les tableaux de notes
 		switch($_POST['annee']){
 			case 'annee1' : $course1=1;$course2=2;$course3=3;    
 				$data['moyenne1']=$ue1;

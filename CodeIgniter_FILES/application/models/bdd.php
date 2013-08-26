@@ -57,14 +57,18 @@ class Bdd extends CI_Model
 	}
 	
 	//voir l'état d'une ue
-	function course_students_grades($id){
+	function course_students_grades($id,$year){
+		if($year==0){
+			$year=date('Y');
+		}
 		$query=$this->db->query('SELECT DISTINCT * 
 						FROM students s,courses_columns c, notes n, inscription i
 							WHERE c.id='.$id.'
+							AND n.grades_year='.$year.'
 							AND c.id=n.course_id
 							AND s.id=n.student_id
 							AND c.id=i.course_id
-							GROUP BY s.lastname');		
+							GROUP BY s.numero_etu');		
 		return $query;
 	}
 	

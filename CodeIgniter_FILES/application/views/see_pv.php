@@ -86,7 +86,7 @@
 		 <TR >
 			  <TD align="center"><?php echo $numetu[$i] ?></TD>
 			  <TD align="center"><?php echo $lastname[$i].' '.$firstname[$i]; ?></TD>
-			  <TD align="center"><?php echo $moyenne1[$i].'/20' ?></TD>
+			  <TD align="center"><?php if($moyenne1[$i]!=null){echo $moyenne1[$i].'/20';}else{echo '';} ?></TD>
 			  <TD align="center"><?php echo $moyenne2[$i].'/20' ?></TD>
 			  <TD align="center"><?php echo $moyenne3[$i].'/20' ?></TD>		  
 		

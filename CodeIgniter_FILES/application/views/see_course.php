@@ -74,6 +74,7 @@
 <TABLE border="1px"> 
   <CAPTION> Récapitulatif UE <?php echo $ue ?> </CAPTION> 
   <TR> 
+ <TH width="80px">  Numéro étudiant  </TH>
  <TH width="300px"> Nom Prénom </TH> 
  <TH width="80px">  Td1  </TH>
  <TH width="80px"> Td1 rattrapage </TH>
@@ -92,6 +93,8 @@ $i=0;
 		foreach ($query->result() as $row){
 ?>
 		   <TR >
+			  <TD align="center"><?php echo $row->numero_etu;?>
+			  </TD>
 			  <TD align="center"><?php echo $row->lastname.' '.$row->firstname; 
 			  	echo form_hidden('student'.$i,$row->student_id);
 			  	echo form_hidden('gradesyear'.$i,$row->grades_year);?>
@@ -123,6 +126,20 @@ $i=0;
 		echo form_hidden('nb',$i);
 		echo form_submit('submit','Enregistrer'); 
 	  	echo form_close();
+
+$years = array(
+		 '2009'=>'2009',
+		 '2010'=>'2010',
+		 '2011'=>'2011',
+		 '2012'=>'2012',
+		);
+echo form_open('lists/see_course_grades');
+echo form_hidden('tableName','courses_columns');
+echo form_label("Choix de l'année  : ");
+echo form_dropdown('year',$years);
+echo form_hidden('id',$course_id);
+echo form_submit("submit","Afficher les notes");
+echo form_close();
 ?> 
 </TABLE>
 
