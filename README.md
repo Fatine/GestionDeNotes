@@ -1,11 +1,9 @@
 GestionDeNotes
 ==============
-Date mise à jour : 16/07/2013
 
 En cours :
    - pagination (controller/lists.php, view/homepage.php) : souci : affichage de toutes les données sur chaque page
-   - !!! création pdfs
-   - pour chaque tableau de notes par ue, mettre la possibilité de voir les années antérieures
+   - !!! impression des PVs et bilans
 
 Ce qu'il faut faire (pas dans l'ordre):
    - !!! Créer une aide pour utiliser le site
@@ -18,6 +16,7 @@ Fonctionnalités demandées :
    - OK imprimer un relevé de notes pour un étudiant, contenant toutes ses ues passées avec la moyenne pour chacune
    - imprimer tout les relevé des notes des étudiants
    - OK imprimer un PV pour chaque UE, avec tout les étudiants inscrits à l'UE, et leurs moyennes
+   - OK possibilité voir les notes des années antérieures
 
 Références :
    - module pdf : 
