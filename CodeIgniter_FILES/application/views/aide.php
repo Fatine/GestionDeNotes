@@ -1,86 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>Gestionnaire de notes</title>
 
-	<style type="text/css">
 
-	::selection{ background-color: #E13300; color: white; }
-	::moz-selection{ background-color: #E13300; color: white; }
-	::webkit-selection{ background-color: #E13300; color: white; }
+<h1> Sommaire </h1>
+<ul>
+<li><a href="#notes">Ajouter/Modifier des notes</a></li>
+<li><a href="#PV">Imprimer un PV</a></li>
+<li><a href="#etu">Ajouter un étudiant</a></li>
+<li><a href="#bilan">Imprimer un ou tout les bilans de notes</a></li>
+</ul>
 
-	body {
-		background-color: #fff;
-		margin: 40px;
-		font: 13px/20px normal Helvetica, Arial, sans-serif;
-		color: #4F5155;
-	}
+<?php echo '</br>'; ?>
+<?php echo '</br>'; ?>
 
-	a {
-		color: #003399;
-		background-color: transparent;
-		font-weight: normal;
-	}
+<hr>
 
-	h1 {
-		color: #444;
-		background-color: transparent;
-		border-bottom: 1px solid #D0D0D0;
-		font-size: 19px;
-		font-weight: normal;
-		margin: 0 0 14px 0;
-		padding: 14px 15px 10px 15px;
-	}
+<?php echo '</br>'; ?>
+<?php echo '</br>'; ?>
+<ul>
+<li><a name="notes"><strong> Ajouter/Modifier des notes</strong></a></li>
+<p>
+	Pour ajouter ou modifier des notes, aller dans "Gérer les unités d'enseignement", puis choisir l'année scolaire voulue, puis sur la ligne de l'ue contenant les notes à ajouter/modifier, cliquer sur "voir les notes".
+	Une fois les modifications effectuées, cliquer sur enregistrer. </a> 
+</p>
 
-	code {
-		font-family: Consolas, Monaco, Courier New, Courier, monospace;
-		font-size: 12px;
-		background-color: #f9f9f9;
-		border: 1px solid #D0D0D0;
-		color: #002166;
-		display: block;
-		margin: 14px 0 14px 0;
-		padding: 12px 10px 12px 10px;
-	}
+<?php echo '</br>'; ?>
+<?php echo '</br>'; ?>
+<li><a name="PV"><strong>Imprimer un PV</strong></a></li>
+<p>
+	Pour imprimer un PV, aller dans "Gérer les unités d'enseignement", choisir le niveau et l'année de passage voulus, cliquer sur créer le PV.
+	Télécharger, puis imprimer. </a> 
+</p>
 
-	#body{
-		margin: 0 15px 0 15px;
-	}
-	
-	p.footer{
-		text-align: right;
-		font-size: 11px;
-		border-top: 1px solid #D0D0D0;
-		line-height: 32px;
-		padding: 0 10px 0 10px;
-		margin: 20px 0 0 0;
-	}
-	
-	#container{
-		margin: 10px;
-		border: 1px solid #D0D0D0;
-		-webkit-box-shadow: 0 0 8px #D0D0D0;
-	}
-	</style>
-</head>
-<body>
+<?php echo '</br>'; ?>
+<?php echo '</br>'; ?>
+<li><a name="etu"><strong> Ajouter un étudiant </strong></a></li>
+<p>
+	Aller dans "Gérer les étudiants", cliquer sur Ajouter un étudiant, et suivre les indications. </a> 
+</p>
 
-	<h2> Contactez-nous </ h2>
-	<? php 
-	echo form_open ('aide');
-	echo form_label ('Votre nom', 'nom');
-	echo form_input ($lastname);
-
-	echo form_label ('Votre e-mail ',' email ');
-	echo form_input ($email);
-
-	echo form_label (' Votre question : ', 'notes');
-	echo form_textarea ($comment);
-
-	echo form_submit ('submit', 'Envoyer');
-	echo form_close ();
-	?>
-
-</body>
-</html>
+<?php echo '</br>'; ?>
+<?php echo '</br>'; ?>
+<li><a name="bilan"><strong> Imprimer un ou tout les bilans de notes </strong></a></li>
+<p>
+	Aller dans "Gérer les étudiants".
+	Pour imprimer tout les bilans de notes, cliquer sur "Bilan de notes de étudiants en PDF",télécharger, et imprimer.
+	Pour imprimer un bilan de notes, choisir l'étudiant dans la liste, cliquer sur "Voir les notes", télécharger et imprimer </a> 
+</p>

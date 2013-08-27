@@ -21,7 +21,7 @@ ini_set("display_errors",0);error_reporting(0);
 <head>
 	<meta charset="utf-8">
 	<title>Gestionnaire de notes</title>
-
+<h5><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/aide" title="Aide"-->Aide</a></h5>
 	<style type="text/css">
 
 	::selection{ background-color: #E13300; color: white; }

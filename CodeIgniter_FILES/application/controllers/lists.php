@@ -60,9 +60,11 @@ class Lists extends CI_Controller
 			$data['firstname']=$row->firstname;
 			$data['query']=$query;
 			$html=$this->load->view('bilan_students',$data, true);
-			 
-			$pdf->WriteHTML($html); // write the HTML into the PDF
-			//$pdf->WriteHTML('hello'); // write the HTML into the PDF
+			
+			$stylesheet = file_get_contents('../css/style.css');
+			$pdf->WriteHTML($stylesheet,1);
+			$pdf->WriteHTML($html,2); // write the HTML into the PDF
+		
 			$pdf->AddPage();
 			$i++;
 		}
