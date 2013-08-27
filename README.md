@@ -1,16 +1,12 @@
 GestionDeNotes
 ==============
 
-En cours :
+A faire:
    - pagination souci : affichage de toutes les données sur chaque page
    - mettre en page les bilans
    - réorganiser le site
    - erreurs masquées : impression des pvs : ues non encore définies, et étudiants non inscrits à une des trois matières de l'années
-   - Créer une aide pour utiliser le site
-   - Créer un compte pour Gerald Delabre, un pour Stephane Pillet, un pour Fatna Merrouche 
-   - Créer un compte pour vincent ?
    - insertion automatique des données depuis excel possible ? 
-   - gestion des templates
 
 Fonctionnalités demandées :
    - OK insérer, supprimer, modifier des étudiants, des notes, des ues
@@ -21,8 +17,11 @@ Fonctionnalités demandées :
    - OK possibilité voir les notes des années antérieures
 
 Autres :
-   - FINI gestion des templates
-   -  
+   - OK (root)  Créer un compte pour vincent
+   - OK         Créer un compte pour Gerald Delabre, un pour Stephane Pillet, un pour Fatna Merrouche 
+   - OK         gestion des templates
+   - EN COURS   Créer une aide pour utiliser le site
+  
    
 
 
