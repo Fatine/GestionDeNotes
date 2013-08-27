@@ -159,8 +159,11 @@ class Lists extends CI_Controller
 		$data['name2']=$name2->name;
 		$data['name3']=$name3->name;
 		$data['nb']=$nb;
-     	$data2['body']=$this->load->view('see_pv',$data, true);
-	     $this->load->view('template', $data2);    
+     	$html=$this->load->view('see_pv',$data, true);
+	     
+		$pdf = $this->pdf->load();
+		$pdf->WriteHTML($html); // write the HTML into the PDF
+		$pdf->Output();
 	}
 //update courses
 	function update_course(){
