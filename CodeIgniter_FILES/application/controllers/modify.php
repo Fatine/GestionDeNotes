@@ -38,7 +38,8 @@ class Modify extends CI_Controller
 				}
 			}
 		}
-    		$this->load->view('submitted');
+    		$data2['body']=$this->load->view('submitted', true);
+	     $this->load->view('template', $data2);    
  	}
  	//ajouter une ue
 	function add_c(){
@@ -48,8 +49,9 @@ class Modify extends CI_Controller
 			 'description'=>$_POST['description'],
 			 );
 		//Insert
-		$this->bdd->add($_POST['tableName'],$new); 
-    		$this->load->view('submitted');
+		$this->bdd->add($_POST['tableName'],$new);
+    		$data2['body']=$this->load->view('submitted', $new, true);
+	     $this->load->view('template', $data2);    
  	}
 	function modify_data(){
 		switch($_POST['tableName']){
@@ -72,12 +74,16 @@ class Modify extends CI_Controller
 		 		 break;
 		}
 		$this->bdd->update($_POST['tableName'],$data,$_POST['id']); 
-    		$this->load->view('submitted');
+    		$data2['body']=$this->load->view('submitted', $data, true);
+	     $this->load->view('template', $data2);    
  	}
 	
 	function delete(){	
 		$this->bdd->delete($_POST['tableName'],$_POST['id']);
-	     $this->load->view('submitted');
+		$data['tableName']=$_POST['tableName'];
+		$data['id']=$_POST['id'];
+	     $data2['body']=$this->load->view('submitted', $data, true);
+	     $this->load->view('template', $data2);    
 	}
 	
 /*
@@ -96,7 +102,8 @@ class Modify extends CI_Controller
  		
 		$data['query'] = $this->db->query('SELECT * FROM courses_columns');
 
- 		$this->load->view('add_student',$data);
+ 		$data2['body']=$this->load->view('add_student',$data, true);
+	     $this->load->view('template', $data2);    
 	}	
 	
 	//Modify a student
@@ -110,13 +117,15 @@ class Modify extends CI_Controller
 				 'firstname'=>$query->firstname,
 				 'email'=>$query->email,
 		 		 );
-		 $this->load->view('modify_data',$user);
+		$data2['body']=$this->load->view('modify_data',$user, true);
+	     $this->load->view('template', $data2);    
 	}	
 	//Delete a student
 	function delete_student(){
 		$data['tableName']='students';
  		$data['id']=$_POST['id'];
-		$this->load->view('delete',$data);
+		$data2['body']=$this->load->view('delete',$data, true);
+	     $this->load->view('template', $data2);    
 	}
 
 
@@ -165,7 +174,8 @@ class Modify extends CI_Controller
  		$data['name']='';
  		$data['shortname']='';
  		$data['description']='';
- 		$this->load->view('add_course',$data);
+ 		$data2['body']=$this->load->view('add_course',$data, true);
+	     $this->load->view('template', $data2);    
 	}
 	//Add grades
 	function add_grades(){
@@ -180,13 +190,15 @@ class Modify extends CI_Controller
 				 'shortname'=>$query->shortname,
 				 'description'=>$query->description,
 		 		 );
-		 $this->load->view('modify_data',$data);
+		$data2['body']=$this->load->view('modify_data',$data, true);
+	     $this->load->view('template', $data2);    
 	}
 	//Delete a course
 	function delete_course(){
 		$data['tableName']='courses_columns';
  		$data['id']=$_POST['id'];
  		$query=$this->bdd->get_by_id('courses_columns', $_POST['id']);
-		$this->load->view('delete',$data);
+		$data2['body']=$this->load->view('delete',$data, true);
+	     $this->load->view('template', $data2);    
 	}
 }

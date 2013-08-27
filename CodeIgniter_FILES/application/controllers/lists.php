@@ -23,7 +23,9 @@ class Lists extends CI_Controller
 			 $data['firstname']='';
 			 $data['email']='';
 			 $data['query'] = $query;
-    			 $this->load->view('students_module',$data);
+    			 $data2['body']=$this->load->view('students_module',$data, true);
+   			 $this->load->view('template', $data2);
+    			 
 	}
 //list of student grades
 	function see_student_grades(){
@@ -40,7 +42,8 @@ class Lists extends CI_Controller
 		}
 		
 		$data['query']=$query;
-      	$this->load->view('bilan_students',$data);
+      	$data2['body']=$this->load->view('bilan_students',$data, true);
+		$this->load->view('template', $data2);
 	}	
 	
 //list of all students grades
@@ -58,14 +61,12 @@ class Lists extends CI_Controller
 			$data['query']=$query;
 			$html=$this->load->view('bilan_students',$data, true);
 			 
-			
 			$pdf->WriteHTML($html); // write the HTML into the PDF
 			//$pdf->WriteHTML('hello'); // write the HTML into the PDF
 			$pdf->AddPage();
 			$i++;
 		}
 		$pdf->Output(); // save to file because we can
-		
 	}	
 	
 //list of courses grades
@@ -81,7 +82,8 @@ class Lists extends CI_Controller
 		$data['ue']=$name->name;
 		$data['course_id']=$_POST['id'];
 		$data['query']=$query;
-      	$this->load->view('see_course',$data);
+      	$data2['body']=$this->load->view('see_course',$data,true);
+    		$this->load->view('template', $data2);
 	}
 
 //list of courses moyennes des élèves
@@ -155,7 +157,8 @@ class Lists extends CI_Controller
 		$data['name2']=$name2->name;
 		$data['name3']=$name3->name;
 		$data['nb']=$nb;
-     	$this->load->view('see_pv',$data);
+     	$data2['body']=$this->load->view('see_pv',$data, true);
+	     $this->load->view('template', $data2);    
 	}
 //update courses
 	function update_course(){
@@ -181,6 +184,7 @@ class Lists extends CI_Controller
 		$data['ue']=$name->name;
 		$data['course_id']=$_POST['course_id'];
 		$data['query']=$query;
-      	$this->load->view('see_course',$data);
+      	$data2['body']=$this->load->view('see_course',$data, true);
+	     $this->load->view('template', $data2);    
 	}
 }

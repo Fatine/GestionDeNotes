@@ -19,7 +19,8 @@ class Aide extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('aide');	
+		$data2['body']=$this->load->view('aide',true);				
+		$this->load->view('template', $data2);
 	}
 }
 

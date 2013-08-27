@@ -11,8 +11,8 @@ class Courses extends CI_Controller {
 		$query = $this->db->query('SELECT * FROM courses_columns');
 		$data['query'] = $query;
  
-	     $this->load->view( 'courses', $data );
-	     
+	     $data2['body']=$this->load->view( 'courses', $data, true);
+	     $this->load->view('template', $data2);    
 	}
 	
 }

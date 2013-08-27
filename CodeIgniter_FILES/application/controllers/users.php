@@ -7,10 +7,14 @@ class users extends Controller{
  }
 
  function index(){
- $this->load->view('users_module');
+ 	$data=array();
+	$data2['body']=$this->load->view('users_module', $data, true);
+ 	$this->load->view('template', $data2);    
  }
 
  function add_user(){
- $this->load->view('user_add_new');
+ 	$data=array();
+	$data2['body']=$this->load->view('user_add_new', $data, true);
+ 	$this->load->view('template', $data2);    
  }
 }
