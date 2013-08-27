@@ -2,8 +2,8 @@ GestionDeNotes
 ==============
 
 En cours :
-   - pagination (controller/lists.php, view/homepage.php) : souci : affichage de toutes les données sur chaque page
-   - mettre en page les bilan
+   - pagination souci : affichage de toutes les données sur chaque page
+   - mettre en page les bilans
    - réorganiser le site
    - erreurs masquées : impression des pvs : ues non encore définies, et étudiants non inscrits à une des trois matières de l'années
    - Créer une aide pour utiliser le site
@@ -19,6 +19,13 @@ Fonctionnalités demandées :
    - OK imprimer tout les relevé des notes des étudiants
    - OK imprimer un PV pour chaque UE, avec tout les étudiants inscrits à l'UE, et leurs moyennes
    - OK possibilité voir les notes des années antérieures
+
+Autres :
+   - FINI gestion des templates
+   -  
+   
+
+
 
 Références :
    - module pdf : 
