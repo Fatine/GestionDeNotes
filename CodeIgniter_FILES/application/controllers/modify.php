@@ -11,12 +11,13 @@ class Modify extends CI_Controller
 	//ajouter un etudiant, un professeur, un administrateur
 	function add(){
 		$data1 = array(
-			 'title'    => $_POST['title'],
-			 'lastname' => $_POST['lastname'],
-			 'firstname'=> $_POST['firstname'],
-			 'email'    => $_POST['email'],
-			 'diploma'  => '',
-			 );
+			'numero_etu'=> $_POST['numero_etu'], 
+			'title'     => $_POST['title'],
+			'lastname'  => $_POST['lastname'],
+			'firstname' => $_POST['firstname'],
+			'email'     => $_POST['email'],
+			'diploma'   => '',
+			);
 		//Insert		
 		$this->bdd->add($_POST['tableName1'],$data1); 
 		
@@ -98,6 +99,7 @@ class Modify extends CI_Controller
  		$data['firstname']='';
  		$data['lastname']='';
  		$data['email']='';
+ 		$data['numero_etu']='';
  		$data['tablename2']='notes';
  		
 		$data['query'] = $this->db->query('SELECT * FROM courses_columns');

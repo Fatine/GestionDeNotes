@@ -42,8 +42,8 @@ class Lists extends CI_Controller
 		}
 		
 		$data['query']=$query;
-      	$data2['body']=$this->load->view('bilan_students',$data, true);
-		$this->load->view('template', $data2);
+		//pas de template pour ne pas avoir le lien "aide" en haut de la page
+      	$this->load->view('bilan_students',$data);
 	}	
 	
 //list of all students grades

@@ -25,6 +25,7 @@
 	echo form_label("Par ordre : ");
 	echo form_dropdown("AscDesc",$AscDesc);
 	echo form_submit("submit","Trier");
+	echo form_close();
 ?>
 <TABLE border="1px">
   <TR>

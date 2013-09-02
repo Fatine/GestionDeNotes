@@ -1,12 +1,12 @@
 	<h2> Bilan de notes </h2> 
-	<h4> <?php echo '</br>'.$lastname.' '.$firstname.'</br> numéro étudiant : '.$numero_etu; ?> </h4>
+	<h4> <?php echo '</br>'.$lastname.' '.$firstname.'</br> num&eacute;ro &eacute;tudiant : '.$numero_etu; ?> </h4>
 <div id="content">
 
 <TABLE border="1px"> 
   <CAPTION> </CAPTION> 
   <TR> 
- <TH width="300px"> Ue </TH>
- <TH width="100px"> Année </TH> 
+ <TH width="300px"> Unit&eacute; d'enseignement </TH>
+ <TH width="100px"> Ann&eacute;e </TH> 
  <TH width="100px"> Note </TH>
  <TH width="100px"> Etat </TH>
   </TR> 

@@ -27,6 +27,23 @@
 	  	echo form_close();
 	  	
 		echo '</br>';	
+		
+		$orders = array(
+		 'name'=>'Par Nom',
+		 'shortname'=>'Par Raccourci',
+		);
+		$AscDesc = array(
+		 'ASC'=>'croissant',
+		 'DESC'=>'décroissant',
+		);
+		echo form_open('lists/order');
+		echo form_hidden('tableName','courses_columns');
+		echo form_label("Tri : ");
+		echo form_dropdown("orders",$orders);
+		echo form_label("Par ordre : ");
+		echo form_dropdown("AscDesc",$AscDesc);
+		echo form_submit("submit","Trier");
+		echo form_close(); 
 ?>
 
 
@@ -35,8 +52,6 @@
  <TH width="450px"> Nom </TH> 
   </TR> 
 <?php
-		  	
-		
 	foreach ($query->result() as $row){
 ?>
    <TR >
@@ -64,24 +79,5 @@
 	}
 ?> 
 </TABLE>
-
-<?php
-	$orders = array(
-		 'name'=>'Par Nom',
-		 'shortname'=>'Par Raccourci',
-		);
-	$AscDesc = array(
-		 'ASC'=>'croissant',
-		 'DESC'=>'décroissant',
-		);
-	echo form_open('lists/order');
-	echo form_hidden('tableName','courses_columns');
-	echo form_label("Tri : ");
-	echo form_dropdown("orders",$orders);
-	echo form_label("Par ordre : ");
-	echo form_dropdown("AscDesc",$AscDesc);
-	echo form_submit("submit","Trier");
-
-?>
 </div>
 

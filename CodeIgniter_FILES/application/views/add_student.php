@@ -23,8 +23,12 @@
 	echo form_input('firstname');
 	echo '</br>';
 
+	echo form_label("Numéro étudiant : ");
+	echo form_input('numero_etu');
+	echo '</br>';
+	/*
 	echo form_label("Email : ");
-	echo form_input('email');
+	echo form_input('email');*/
 	echo '</br>';
 	
 	echo form_label("Année de passage des ues : ");
