@@ -1,46 +1,18 @@
 Structure du site
 
-date : 16/07/2013
-|welcome.php 
-	|->Logout
-	|
-	|->Gérer les étudiants 
-	|	|-> Ajouter un étudiant
-	|	|-> Modifier ~
-	|	|-> Supprimer ~
-	|	|-> Liste des étudiants
-	|	|-> Voir les notes d'un étudiant
-	|	|-> Retour à l'accueil
-	|
-	|->Gérer les UE
-	|	|-> Ajouter une UE
-	|	|-> Modifier ~
-	|	|-> Supprimer ~
-	|	|-> Ajouter des notes
-	|	|-> Liste des étudiants
-	|	|-> Voir les notes d'un étudiant
-	|	|-> Retour à l'accueil
-	|	
-	
-Ce que je voudrais 
-
 |welcome.php  
 	|->Logout
 	|
-	|->Gérer les Administratifs (Droits : Root )
-	|	|-> Tableau des Administratifs
-	|		Modifications possibles à partir du tableau comme dans phpmyadmin	
+	|->Gérer les Unités d'enseignement
+	| 	|-> Ajouter une unité d'enseignement
+	|	|-> Imprimer le pV d'un groupe d'étudiant d'une année
+	|	|-> Tableau des UE (possibilité de trier par nom)
+	|		A chaque ligne, "voir les notes", "modifier", "supprimer"
 	|
-	|->Gérer les professeurs (Droits : Root, Administratives)
-	|	|-> Tableau des Professeurs (possibilité de trier par ue, par nom,...)
-	|		Modifications possibles à partir du tableau comme dans phpmyadmin
-	|
-	|->Gérer les UE (Droits : Root, Administratives and teachers) 
-	|	|-> Tableau des UE 
-	|		Modifications possibles à partir du tableau comme dans phpmyadmin
-	|
-	|->Gérer les étudiants (Droits :Root, Administratives and teachers) 
-	|	|-> Tableau des étudiants (possibilité de trier par ue, par nom,...)
-	|		Modifications possibles à partir du tableau comme dans phpmyadmin
+	|->Gérer les étudiants 
+	| 	|-> Ajouter un étudiant
+	|	|-> Imprimer les bilans de notes de tout les étudiants
+	|	|-> Tableau des étudiants (possibilité de trier par ue, par nom, par numéro étudiant)
+	|		A chaque ligne, "voir les notes", "modifier", "supprimer"
 	
 	
