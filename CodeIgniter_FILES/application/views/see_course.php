@@ -1,3 +1,10 @@
+<?php 
+/**
+* views/see_courses.php : vue des notes d'une unité d'enseignement
+* @author Fatine Nakkoubi
+*/
+?>
+
 <h5><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/courses" title="Retour"-->Retour</a></h5>
 <div id="content">
 <TABLE border="1px">  <CAPTION> Récapitulatif UE <?php echo $ue ?> </CAPTION> 

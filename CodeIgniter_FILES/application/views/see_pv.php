@@ -1,3 +1,9 @@
+<?php
+/**
+* views/see_pv.php : vue du pv d'un bloc d'unités d'enseignement (par année)
+* @author Fatine Nakkoubi
+*/
+?>
 <div id="content">
 <TABLE border="1px"> 
   <TR> 

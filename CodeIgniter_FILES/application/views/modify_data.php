@@ -1,6 +1,9 @@
-<h2> Modifier les informations </ h2>
 <?php
-	echo '</br>';echo '</br>';
+/**
+* views/modify_data.php : vue pour la modification des informations (unité d'enseignement ou etudiant)
+* @author Fatine Nakkoubi
+*/
+	echo '<h2> Modifier les informations </ h2></br>';echo '</br>';
 
 
 //Ouverture du formulaire

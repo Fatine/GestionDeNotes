@@ -13,6 +13,10 @@
     <body-->
 
 <?php
+/**
+* views/header.php : en-tête des pages pour le template
+* @author Fatine Nakkoubi
+*/
 ini_set("display_errors",0);error_reporting(0);
 ?>    
 <!DOCTYPE html>

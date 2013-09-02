@@ -1,6 +1,9 @@
-	<h2> Ajouter un étudiant </h2>
 <?php
-	echo '</br>';echo '</br>';
+/**
+* views/add_student.php : vue de l'ajout d'un étudiant
+* @author Fatine Nakkoubi
+*/
+	echo '<h2> Ajouter un étudiant </h2></br>';echo '</br>';
 
 	//Ouverture du formulaire
 	echo form_open('modify/add');

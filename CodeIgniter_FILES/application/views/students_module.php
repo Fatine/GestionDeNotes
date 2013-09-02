@@ -1,3 +1,9 @@
+<?php
+/**
+* views/students_module.php : vue de la gestion des étudiants
+* @author Fatine Nakkoubi
+*/
+?>
 <h1>G&eacute;rer les &eacute;tudiants</h1>
 <h5><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/" title="Retour"-->Retour &agrave; l'accueil</a></h5>
 <div id="content">

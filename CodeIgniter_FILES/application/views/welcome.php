@@ -1,3 +1,8 @@
+<?php
+/**
+* views/welcome.php : vue de la première page affichée après connexion
+*/
+?>
 <div id="container">
 
 	<?php echo '<br/>'; echo anchor('/auth/logout/', 'Logout'); echo '<br/>';?>

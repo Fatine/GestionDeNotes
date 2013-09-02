@@ -1,3 +1,9 @@
+<?php
+/**
+* views/bilan_students.php : vue du bilan de notes d'un étudiant
+* @author Fatine Nakkoubi
+*/
+?>
 	<h2> Bilan de notes </h2> 
 	<h4> <?php echo '</br>'.$lastname.' '.$firstname.'</br> num&eacute;ro &eacute;tudiant : '.$numero_etu; ?> </h4>
 <div id="content">

@@ -1,7 +1,12 @@
 
-	<h2> Ajouter une unité d'enseignement </ h2>
+	
 <?php
-	echo '</br>';echo '</br>';
+/**
+* views/add_course.php : vue de l'ajout d'une unité d'enseignement
+* @author Fatine Nakkoubi
+*/
+
+	echo '<h2> Ajouter une unité d\'enseignement </ h2> </br></br>';
 
 	//Ouverture du formulaire
 	echo form_open('modify/add_c');

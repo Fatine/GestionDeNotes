@@ -1,4 +1,9 @@
 <?php
+/**
+* views/delete.php : vue pour la confirmation de la suppression d'une entité
+* @author Fatine Nakkoubi
+*/
+
 	echo '<br/>';echo '<br/>';echo '<br/>';
 	echo 'Voulez-vous vraiment effectuer cette suppression ? <br/>';
 	

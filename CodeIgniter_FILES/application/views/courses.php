@@ -1,3 +1,9 @@
+<?php 
+/**
+* views/courses.php : vue des unités d'enseignement
+* @author Fatine Nakkoubi
+*/
+?>
 <h1>G&eacute;rer les unit&eacute;s d'enseignement</h1>
 <h5><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/" title="Retour"-->Retour &agrave; l'accueil</a></h5>
 

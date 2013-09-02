@@ -1,4 +1,9 @@
-
+<?php 
+/**
+* views/aide.php : vue de l'aide
+* @author Fatine Nakkoubi
+*/
+?>
 
 <h2 align='center'> Sommaire </h2>
 <ul>
