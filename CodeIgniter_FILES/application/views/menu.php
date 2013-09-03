@@ -9,15 +9,19 @@
        		"Notes 2èmes années", 
        		"Notes 3èmes années", 
        		"Notes 4èmes années", 
-       		"Impressions");
+       		"Impressions",
+       		"Aide",
+       		"Déconnexion",);
         $tab_menu_lien = array(
         		"http://localhost/GestionDeNotes/CodeIgniter_FILES/", 
         		"http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/modify/add_student/", 
         		"", 
         		"", 
-        		"", 
         		"",
-        		"http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/impressions" );
+        		"",
+        		"http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/impressions",
+        		"http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/aide",
+        		"http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/auth/logout/");
          
         // informations sur la page
         $info = pathinfo($_SERVER['PHP_SELF']);

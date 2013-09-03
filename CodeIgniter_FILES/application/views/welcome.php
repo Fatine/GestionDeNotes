@@ -3,14 +3,14 @@
 * views/welcome.php : vue de la première page affichée après connexion
 */
 ?>
-<div id="container">
-
-	<?php echo '<br/>'; echo anchor('/auth/logout/', 'Logout'); echo '<br/>';?>
-	
+<div id="container" align="center">
+	</br>
+	</br>
 	Bonjour <strong><?php echo $username.' '; ?></strong>!
-	
-		
-		<p><a href="students">Gérer les étudiants</a></p>
-		<p><a href="courses">Gérer les unités d'enseignement</a></p>
+	</br>
+	</br>
+	Pour naviguer sur le site, cliquez sur l'un des onglets ci-dessus !
+	</br>
+	</br>
 </div>
 

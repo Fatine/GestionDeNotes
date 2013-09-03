@@ -27,7 +27,6 @@ ini_set("display_errors",0);error_reporting(0);
 <head>
 	<meta charset="utf-8">
 	<title>Gestionnaire de notes</title>
-<h5><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/aide" title="Aide"-->Aide</a></h5>
 	<style type="text/css">
 
 	::selection{ background-color: #E13300; color: white; }
@@ -43,15 +42,15 @@ ini_set("display_errors",0);error_reporting(0);
 		   left : 50%;
 		   margin-top : 0;
 		   width : 1000px;
-		   margin-left : -350px; /* la moitié de width */
+		   margin-left : -400px; /* la moitié de width */
 	}
 	
 	#onglets li{
 		    float : left;
 		    height : 21px; /* à modifier suivant la taille de la police pour centrer le texte dans l'onglet */
 		    background-color: #F4F9FD;
-		    margin : 2px 2px 0 2px !important;  /* Pour les navigateurs autre que IE */
-		    margin : 1px 2px 0 2px;  /* Pour IE  */
+		    margin : 2px 2px 0 4px !important;  /* Pour les navigateurs autre que IE */
+		    margin : 1px 2px 0 4px;  /* Pour IE  */
 		    border : 1px solid #9EA0A1;
 	}
 	
@@ -74,11 +73,15 @@ ini_set("display_errors",0);error_reporting(0);
 		   border-bottom : 1px solid #9EA0A1;
 		   padding-bottom : 25px;
 	}
-	body {
+	
+	#body {
 		background-color: #fff;
-		margin: 40px;
+		//margin: 40px;
 		font: 13px/20px normal Helvetica, Arial, sans-serif;
-		color: #4F5155;
+		//color: #4F5155;
+	}
+	.decalage { 
+		margin-left : 150px 
 	}
 
 	a {
