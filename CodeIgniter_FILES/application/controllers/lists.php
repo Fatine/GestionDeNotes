@@ -194,8 +194,209 @@ class Lists extends CI_Controller
 		$pdf->WriteHTML($html); // write the HTML into the PDF
 		$pdf->Output();
 	}
+/*! \fn pv_ue_premiere_annee()
+ *  \brief pour voir le pv des premières année
+ *  \param $_POST['annee_scolaire'] année de passage des ue (20XX)
+ *  \return envoie dans see_pv
+ */
+	function pv_ue_premiere_annee(){
+		//calcul des moyennes (avec rajouts de points):
+		$this->bdd->calcul_moyennes();
+		//recupération des données
+     	$query=$this->db->query('SELECT DISTINCT id,lastname,firstname,numero_etu FROM students order by numero_etu');
+		foreach($query->result() as $row){
+			$lastname[$row->id]=$row->lastname;
+			$firstname[$row->id]=$row->firstname;
+			$numetu[$row->id]=$row->numero_etu;
+		}
+		
+		$nb=$query->num_rows();
+		$query2=$this->db->query('SELECT DISTINCT course_id,moyenne_finale,id 
+							FROM students,notes 						
+							where student_id=id 
+							ORDER BY numero_etu');
+		
+		//on crée des tableaux contenant dans l'ordre des numeros etudiants les notes des étudiants
+		foreach($query2->result() as $row){
+			switch($row->course_id){
+				case 1 : $ue1[$row->id]=$row->moyenne_finale; break;
+				case 2 : $ue2[$row->id]=$row->moyenne_finale; break;
+				case 3 : $ue3[$row->id]=$row->moyenne_finale; break;
+			};
+		}
+		$data['lastname']=$lastname;
+		$data['firstname']=$firstname;
+		$data['numetu']=$numetu;   
+		$data['moyenne1']=$ue1;
+		$data['moyenne2']=$ue2;
+		$data['moyenne3']=$ue3;
+		$name1=$this->bdd->get_by_id('courses_columns', 1);
+		$name2=$this->bdd->get_by_id('courses_columns', 2);
+		$name3=$this->bdd->get_by_id('courses_columns', 3);
+		$data['name1']=$name1->name;
+		$data['name2']=$name2->name;
+		$data['name3']=$name3->name;
+		$data['nb']=$nb;
+     	$this->load->view('see_pv',$data);
+	  /*
+		$pdf = $this->pdf->load();
+		$pdf->WriteHTML($html); // write the HTML into the PDF
+		$pdf->Output();*/
+	}
+
+
+/*! \fn pv_ue_deuxieme_annee()
+ *  \brief pour voir le pv des deuxiemes année
+ *  \param $_POST['annee_scolaire'] année de passage des ue (20XX)
+ *  \return envoie dans see_pv
+ */
+	function pv_ue_deuxieme_annee(){
+		//calcul des moyennes (avec rajouts de points):
+		$this->bdd->calcul_moyennes();
+		//recupération des données
+     	$query=$this->db->query('SELECT DISTINCT id,lastname,firstname,numero_etu FROM students order by numero_etu');
+		foreach($query->result() as $row){
+			$lastname[$row->id]=$row->lastname;
+			$firstname[$row->id]=$row->firstname;
+			$numetu[$row->id]=$row->numero_etu;
+		}
+		
+		$nb=$query->num_rows();
+		$query2=$this->db->query('SELECT DISTINCT course_id,moyenne_finale,id 
+							FROM students,notes 						
+							where student_id=id 
+							ORDER BY numero_etu');
+		
+		//on crée des tableaux contenant dans l'ordre des numeros etudiants les notes des étudiants
+		foreach($query2->result() as $row){
+			switch($row->course_id){
+				case 4 : $ue1[$row->id]=$row->moyenne_finale; break;
+				case 5 : $ue2[$row->id]=$row->moyenne_finale; break;
+				case 6 : $ue3[$row->id]=$row->moyenne_finale; break;
+			};
+		}
+		$data['lastname']=$lastname;
+		$data['firstname']=$firstname;
+		$data['numetu']=$numetu;   
+		$data['moyenne1']=$ue1;
+		$data['moyenne2']=$ue2;
+		$data['moyenne3']=$ue3;
+		$name1=$this->bdd->get_by_id('courses_columns', 4);
+		$name2=$this->bdd->get_by_id('courses_columns', 5);
+		$name3=$this->bdd->get_by_id('courses_columns', 6);
+		$data['name1']=$name1->name;
+		$data['name2']=$name2->name;
+		$data['name3']=$name3->name;
+		$data['nb']=$nb;
+     	$this->load->view('see_pv',$data);
+	  /*
+		$pdf = $this->pdf->load();
+		$pdf->WriteHTML($html); // write the HTML into the PDF
+		$pdf->Output();*/
+	}
+
+
+/*! \fn pv_ue_troisieme_annee()
+ *  \brief pour voir le pv des troisiemes années
+ *  \param $_POST['annee_scolaire'] année de passage des ue (20XX)
+ *  \return envoie dans see_pv
+ */
+	function pv_ue_troisieme_annee(){
+		//calcul des moyennes (avec rajouts de points):
+		$this->bdd->calcul_moyennes();
+		//recupération des données
+     	$query=$this->db->query('SELECT DISTINCT id,lastname,firstname,numero_etu FROM students order by numero_etu');
+		foreach($query->result() as $row){
+			$lastname[$row->id]=$row->lastname;
+			$firstname[$row->id]=$row->firstname;
+			$numetu[$row->id]=$row->numero_etu;
+		}
+		
+		$nb=$query->num_rows();
+		$query2=$this->db->query('SELECT DISTINCT course_id,moyenne_finale,id 
+							FROM students,notes 						
+							where student_id=id 
+							ORDER BY numero_etu');
+		
+		//on crée des tableaux contenant dans l'ordre des numeros etudiants les notes des étudiants
+		foreach($query2->result() as $row){
+			switch($row->course_id){
+				case 7 : $ue1[$row->id]=$row->moyenne_finale; break;
+				case 8 : $ue2[$row->id]=$row->moyenne_finale; break;
+				case 9 : $ue3[$row->id]=$row->moyenne_finale; break;
+			};
+		}
+		$data['lastname']=$lastname;
+		$data['firstname']=$firstname;
+		$data['numetu']=$numetu;   
+		$data['moyenne1']=$ue1;
+		$data['moyenne2']=$ue2;
+		$data['moyenne3']=$ue3;
+		$name1=$this->bdd->get_by_id('courses_columns', 7);
+		$name2=$this->bdd->get_by_id('courses_columns', 8);
+		$name3=$this->bdd->get_by_id('courses_columns', 9);
+		$data['name1']=$name1->name;
+		$data['name2']=$name2->name;
+		$data['name3']=$name3->name;
+		$data['nb']=$nb;
+     	$this->load->view('see_pv',$data);
+	  /*
+		$pdf = $this->pdf->load();
+		$pdf->WriteHTML($html); // write the HTML into the PDF
+		$pdf->Output();*/
+	}
 	
-/*! \fn pv_ue()
+/*! \fn pv_ue_quatrieme_annee()
+ *  \brief pour voir le pv des quatriemes années
+ *  \param $_POST['annee_scolaire'] année de passage des ue (20XX)
+ *  \return envoie dans see_pv
+ */
+	function pv_ue_quatrieme_annee(){
+		//calcul des moyennes (avec rajouts de points):
+		$this->bdd->calcul_moyennes();
+		//recupération des données
+     	$query=$this->db->query('SELECT DISTINCT id,lastname,firstname,numero_etu FROM students order by numero_etu');
+		foreach($query->result() as $row){
+			$lastname[$row->id]=$row->lastname;
+			$firstname[$row->id]=$row->firstname;
+			$numetu[$row->id]=$row->numero_etu;
+		}
+		
+		$nb=$query->num_rows();
+		$query2=$this->db->query('SELECT DISTINCT course_id,moyenne_finale,id 
+							FROM students,notes 						
+							where student_id=id 
+							ORDER BY numero_etu');
+		
+		//on crée des tableaux contenant dans l'ordre des numeros etudiants les notes des étudiants
+		foreach($query2->result() as $row){
+			switch($row->course_id){
+				case 10 : $ue1[$row->id]=$row->moyenne_finale; break;
+				case 11 : $ue2[$row->id]=$row->moyenne_finale; break;
+				case 12 : $ue3[$row->id]=$row->moyenne_finale; break;
+			};
+		}
+		$data['lastname']=$lastname;
+		$data['firstname']=$firstname;
+		$data['numetu']=$numetu;   
+		$data['moyenne1']=$ue1;
+		$data['moyenne2']=$ue2;
+		$data['moyenne3']=$ue3;
+		$name1=$this->bdd->get_by_id('courses_columns', 10);
+		$name2=$this->bdd->get_by_id('courses_columns', 11);
+		$name3=$this->bdd->get_by_id('courses_columns', 12);
+		$data['name1']=$name1->name;
+		$data['name2']=$name2->name;
+		$data['name3']=$name3->name;
+		$data['nb']=$nb;
+     	$this->load->view('see_pv',$data);
+	  /*
+		$pdf = $this->pdf->load();
+		$pdf->WriteHTML($html); // write the HTML into the PDF
+		$pdf->Output();*/
+	}	
+	
+/*! \fn update_course()
  *  \brief pour mettre à jour les notes d'une ue après modifications
  *  \param $_POST['nb'] nombre de lignes du tableau
  *  \param $_POST['course_id'] id de l'unité d'enseignement

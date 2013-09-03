@@ -15,10 +15,10 @@
         $tab_menu_lien = array(
         		"http://localhost/GestionDeNotes/CodeIgniter_FILES/", 
         		"http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/modify/add_student/", 
-        		"", 
-        		"", 
-        		"",
-        		"",
+        		"http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/lists/pv_ue_premiere_annee", 
+        		"http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/lists/pv_ue_deuxieme_annee", 
+        		"http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/lists/pv_ue_troisieme_annee",
+        		"http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/lists/pv_ue_quatrieme_annee",
         		"http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/impressions",
         		"http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/aide",
         		"http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/auth/logout/");
