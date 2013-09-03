@@ -2,7 +2,9 @@ GestionDeNotes
 ==============
 
 A faire:
-   - gestion des notes : quand <8, mettre ajourné, quand ABS, moyenne = RNC, ajouter colonne modifiable moyenne définitive(c'est elle qui est à prendre en compte dans les bilans et PVs).
+   - gestion des notes : quand < 8, mettre ajourné
+   					quand ABS, moyenne = RN. 
+   - EN COURS ajouter colonne modifiable moyenne définitive(ajoutée mais pas prise en compte => c'est elle qui est à prendre en compte dans les bilans et PVs).
    - Mettre en page les bilans et pv avec tableaux, logos, signature
    - visibilité des notes : par année (3 ues), toutes les notes pour chaque étudiant(onglets ?)
    - souci enregistrement des notes
