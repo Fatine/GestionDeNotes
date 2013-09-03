@@ -11,7 +11,10 @@
                     css/bootstrap/bootstrap.min.css" rel="stylesheet" >
     </head>
     <body-->
-
+<?php
+    require_once("menu.php");       
+    $menu = affiche_menu();
+?>
 <?php
 /**
 * views/header.php : en-tête des pages pour le template
@@ -30,7 +33,47 @@ ini_set("display_errors",0);error_reporting(0);
 	::selection{ background-color: #E13300; color: white; }
 	::moz-selection{ background-color: #E13300; color: white; }
 	::webkit-selection{ background-color: #E13300; color: white; }
-
+	
+	#onglets {
+		   position : absolute;
+		   border : 1px solid transparent;
+		   padding : 0;
+		   font : bold 11px Batang, arial, serif;
+		   list-style-type : none;
+		   left : 50%;
+		   margin-top : 0;
+		   width : 1000px;
+		   margin-left : -350px; /* la moitié de width */
+	}
+	
+	#onglets li{
+		    float : left;
+		    height : 21px; /* à modifier suivant la taille de la police pour centrer le texte dans l'onglet */
+		    background-color: #F4F9FD;
+		    margin : 2px 2px 0 2px !important;  /* Pour les navigateurs autre que IE */
+		    margin : 1px 2px 0 2px;  /* Pour IE  */
+		    border : 1px solid #9EA0A1;
+	}
+	
+	#onglets li.active{
+		    border-bottom: 1px solid #fff;
+		    background-color: #fff;
+	}
+	
+	#onglets as{
+		    display : block;
+		    color : #666;
+		    text-decoration : none;
+		    padding : 4px;
+		}
+	#onglets a:hover {
+		    background : #fff;
+	}
+	
+	#menu {
+		   border-bottom : 1px solid #9EA0A1;
+		   padding-bottom : 25px;
+	}
 	body {
 		background-color: #fff;
 		margin: 40px;
@@ -86,3 +129,8 @@ ini_set("display_errors",0);error_reporting(0);
 	</style>
 </head>
 <body>
+
+<?php
+    echo $menu;
+?>
+

@@ -5,7 +5,6 @@
 */
 ?>
 
-<h5><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/courses" title="Retour"-->Retour</a></h5>
 <div id="content">
 <TABLE border="1px">  <CAPTION> Récapitulatif UE <?php echo $ue ?> </CAPTION> 
   <TR> 
@@ -19,6 +18,7 @@
 	 <TH width="80px"> Exam rattrapage </TH>
 	 <TH width="80px"> Moyenne temporaire </TH>
 	 <TH width="80px"> Moyenne finale</TH>
+	 <TH width="80px"> Moyenne définitive</TH>
   </TR> 
 <?php
 	$years = array(
@@ -48,21 +48,23 @@
 			  	echo form_hidden('student'.$i,$row->student_id);
 			  	echo form_hidden('gradesyear'.$i,$row->grades_year);?>
 			  </TD>
-			  <TD align="center"><?php echo form_input('td1'.$i,$row->td1,'size="2"').'/20';?>
+			  <TD align="center"><?php echo form_input('td1'.$i,$row->td1,'size="2"');?>
 			  </TD>
-			  <TD align="center"><?php echo form_input('td1r'.$i,$row->td1_r,'size="2"').'/20';?>
+			  <TD align="center"><?php echo form_input('td1r'.$i,$row->td1_r,'size="2"');?>
 			  </TD>
-			  <TD align="center"><?php echo form_input('td2'.$i,$row->td2,'size="2"').'/20';?>
+			  <TD align="center"><?php echo form_input('td2'.$i,$row->td2,'size="2"');?>
 			  </TD>
-			  <TD align="center"><?php echo form_input('td2r'.$i,$row->td2_r,'size="2"').'/20';?>
+			  <TD align="center"><?php echo form_input('td2r'.$i,$row->td2_r,'size="2"');?>
 			  </TD>
-			  <TD align="center"><?php echo form_input('exam'.$i,$row->exam,'size="2"').'/20';?>
+			  <TD align="center"><?php echo form_input('exam'.$i,$row->exam,'size="2"');?>
 			  </TD>
-			  <TD align="center"><?php echo form_input('examr'.$i,$row->exam_r,'size="2"').'/20';?>
+			  <TD align="center"><?php echo form_input('examr'.$i,$row->exam_r,'size="2"');?>
 			  </TD>
-			  <TD align="center"><?php echo $row->moyenne_tmp.'/20' ?>
+			  <TD align="center"><?php echo $row->moyenne_tmp; ?>
 			  </TD>
-			  <TD align="center"><?php echo $row->moyenne_finale.'/20' ?>
+			  <TD align="center"><?php echo $row->moyenne_finale; ?>
+			  </TD>
+			  <TD align="center"><?php echo form_input('moyenne_definitive'.$i,$row->moyenne_definitive,'size="2"');?>
 			  </TD>	  
 		   </TR>
 <?php

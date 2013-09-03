@@ -5,9 +5,7 @@
 */
 ?>
 <h1>G&eacute;rer les &eacute;tudiants</h1>
-<h5><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/" title="Retour"-->Retour &agrave; l'accueil</a></h5>
-<div id="content">
-<a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/modify/add_student/">Ajouter un &eacute;tudiant</a>
+
 <?php 
   	echo form_open('lists/see_students_grades');	  	
   	echo form_submit('submit','Bilan de notes des étudiants en PDF'); 
