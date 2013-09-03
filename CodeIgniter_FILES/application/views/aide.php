@@ -43,9 +43,9 @@
 
 <li><a name="etu_aj"><strong> Ajouter un étudiant </strong></a></li>
 <p>
-	1/ Aller dans "Gérer les étudiants"
-	2/ Cliquer sur Ajouter un étudiant
-	3/ Compléter le formulaire. 
+	1/ Aller dans "Gérer les étudiants" <br/>
+	2/ Cliquer sur Ajouter un étudiant <br/>
+	3/ Compléter le formulaire.  <br/>
 	L'étudiant sera inscrit à toutes les Unités d'enseignement cochées.</a> 
 </p>
 
@@ -53,8 +53,8 @@
 
 <li><a name="etu_mo"><strong> Modifier un étudiant </strong></a></li>
 <p>
-	1/ Aller dans "Gérer les étudiants" 
-	2/ Cliquer sur "Modifier" sur la ligne de l'étudiant voulu
+	1/ Aller dans "Gérer les étudiants" <br/> 
+	2/ Cliquer sur "Modifier" sur la ligne de l'étudiant voulu <br/>
 	3/ Compléter le formulaire. </a> 
 </p>
 
@@ -62,7 +62,7 @@
 
 <li><a name="etu_su"><strong> Supprimer un étudiant </strong></a></li>
 <p>
-	1/ Aller dans "Gérer les étudiants" 
+	1/ Aller dans "Gérer les étudiants" <br/>
 	2/ Cliquer sur "Supprimer" sur la ligne de l'étudiant voulu </a> 
 </p>
 
@@ -70,9 +70,9 @@
 
 <li><a name="PV"><strong>Imprimer un PV</strong></a></li>
 <p>
-	1/ Aller dans "Gérer les unités d'enseignement"
-	2/ Choisir le niveau et l'année de passage voulus
-	3/ Cliquer sur créer le PV.
+	1/ Aller dans "Gérer les unités d'enseignement"<br/>
+	2/ Choisir le niveau et l'année de passage voulus<br/>
+	3/ Cliquer sur créer le PV.<br/>
 	4/ Télécharger, puis imprimer. </a> 
 </p>
 
@@ -80,15 +80,15 @@
 
 <li><a name="bilan"><strong> Imprimer un ou tout les bilans de notes </strong></a></li>
 <p>
-	1/ Aller dans "Gérer les étudiants".
-	2/ 
-		A) Tout les bilans de notes :
-			a/ Cliquer sur "Bilan de notes de étudiants en PDF"
-			b/ Télécharger, et imprimer.
+	1/ Aller dans "Gérer les étudiants".<br/>
+	2/ <br/>
+		A) Tout les bilans de notes :<br/>
+			a/ Cliquer sur "Bilan de notes de étudiants en PDF"<br/>
+			b/ Télécharger, et imprimer.<br/>
 	
-		B) U n bilan de notes :
-			a/ Choisir l'étudiant dans la liste
-			b/ Cliquer sur "Voir les notes"
+		B) U n bilan de notes :<br/>
+			a/ Choisir l'étudiant dans la liste<br/>
+			b/ Cliquer sur "Voir les notes"<br/>
 			c/ Télécharger et imprimer </a> 
 </p>
 </ul>

@@ -2,7 +2,11 @@ GestionDeNotes
 ==============
 
 A faire:
-   - pagination souci : affichage de toutes les données sur chaque page
+   - gestion des notes : quand <8, mettre ajourné, quand ABS, moyenne = RNC, ajouter colonne modifiable moyenne définitive(c'est elle qui est à prendre en compte dans les bilans et PVs).
+   - Mettre en page les bilans et pv avec tableaux, logos, signature
+   - visibilité des notes : par année (3 ues), toutes les notes pour chaque étudiant(onglets ?)
+   - souci enregistrement des notes
+   - souci pagination : affichage de toutes les données sur chaque page
    - réorganiser le site
    - erreurs masquées : impression des pvs : ues non encore définies, et étudiants non inscrits à une des trois matières de l'années
    - insertion automatique des données depuis excel possible ? 
@@ -16,7 +20,6 @@ Fonctionnalités demandées :
    - OK possibilité voir les notes des années antérieures
 
 Autres :
-   - OK         Mettre en page les bilans
    - OK (root)  Créer un compte pour vincent
    - OK         Créer un compte pour Gerald Delabre, un pour Stephane Pillet, un pour Fatna Merrouche 
    - OK         Gestion des templates
