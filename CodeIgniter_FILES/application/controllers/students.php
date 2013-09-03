@@ -1,5 +1,9 @@
 <?php
 if ( ! defined( 'BASEPATH' )) exit( 'No direct script access allowed' );
+/*
+* controllers/students.php : controleur de la vue students_module.php
+* @author Fatine Nakkoubi
+*/
 
 class Students extends CI_Controller {
 

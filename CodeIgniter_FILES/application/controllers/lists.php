@@ -1,5 +1,10 @@
 <?php
 ini_set("display_errors",0);error_reporting(0);
+/*
+* controllers/lists.php : controleur pour lister des élements
+* @author Fatine Nakkoubi
+*/
+
 ?>
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
@@ -15,7 +20,13 @@ class Lists extends CI_Controller
 		$this->load->library("pagination");
 	}
 
-//ordering
+/*! \fn order() 
+ *  \brief pour trier la table d'étudiants
+ *  \param $_POST['tableName'] nom de la table
+ *  \param $_POST['orders'] champ suivant lequel on doit trier
+ *  \param $_POST['AscDesc'] ordre ascendant ou descendant
+ *  \return va à views/students_module.php, avec la liste d'étudiants ordonnée 
+ */
 	function order(){
 			 $query=$this->bdd->order($_POST['tableName'],$_POST['orders'], $_POST['AscDesc']); 
 			 $data['title']='';
@@ -24,10 +35,14 @@ class Lists extends CI_Controller
 			 $data['email']='';
 			 $data['query'] = $query;
     			 $data2['body']=$this->load->view('students_module',$data, true);
-   			 $this->load->view('template', $data2);
-    			 
+   			 $this->load->view('template', $data2);	 
 	}
-//list of student grades
+	
+/*! \fn see_student_grades()
+ *  \brief pour regarder le bilan de notes d'un étudiant
+ *  \param $_POST['id'] id de l'étudiant
+ *  \return va à views/bilan_students.php, avec la liste des notes de l'étudiant 
+ */
 	function see_student_grades(){
 		$query=$this->bdd->student_grades($_POST['id']);
 		$name= $this->bdd->get_student_name($_POST['id']);
@@ -46,7 +61,10 @@ class Lists extends CI_Controller
       	$this->load->view('bilan_students',$data);
 	}	
 	
-//list of all students grades
+/*! \fn see_students_grades()
+ *  \brief pour regarder le bilan de notes de tout les étudiants
+ *  \return page pdf avec sur chaque page le bilan de notes d'un étudiant 
+ */
 	function see_students_grades(){
 		$query=$this->bdd->get_all_students();
 		$i=1;
@@ -68,10 +86,16 @@ class Lists extends CI_Controller
 			$pdf->AddPage();
 			$i++;
 		}
-		$pdf->Output(); // save to file because we can
+		$pdf->Output();
 	}	
 	
-//list of courses grades
+
+/*! \fn see_course_grades()
+ *  \brief pour regarder les notes d'une unité d'enseignement
+ *  \param $_POST['id'] id de l'unité d'enseignement
+ *  \param $_POST['year'] année choisie pour l'affichage des notes
+ *  \return va à views/see_course.php, avec la liste des notes de l'ue en fonction de l'année choisie 
+ */
 	function see_course_grades(){
 		//calcul des moyennes (avec rajouts de points):
 		$this->bdd->calcul_moyennes();
@@ -88,7 +112,12 @@ class Lists extends CI_Controller
     		$this->load->view('template', $data2);
 	}
 
-//list of courses moyennes des élèves
+/*! \fn pv_ue()
+ *  \brief pour voir le pv d'un bloc d'ue (1ere, 2eme, 3eme ou 4eme année)
+ *  \param $_POST['annee_scolaire'] année de passage des ue (20XX)
+ *  \param $_POST['annee'] niveau des étudiants (1eres,2emes,3emes ou 4emes années)
+ *  \return fichier pdf avec la liste des etudiants pour 3 ue avec chacunes leurs notes
+ */
 	function pv_ue(){
 		//calcul des moyennes (avec rajouts de points):
 		$this->bdd->calcul_moyennes();
@@ -165,8 +194,15 @@ class Lists extends CI_Controller
 		$pdf->WriteHTML($html); // write the HTML into the PDF
 		$pdf->Output();
 	}
-//update courses
+	
+/*! \fn pv_ue()
+ *  \brief pour mettre à jour les notes d'une ue après modifications
+ *  \param $_POST['nb'] nombre de lignes du tableau
+ *  \param $_POST['course_id'] id de l'unité d'enseignement
+ *  \return fichier pdf avec la liste des etudiants pour 3 ue avec chacunes leurs notes
+ */
 	function update_course(){
+	//on met les nouvelles notes dans un tableau
 		for($i=0; $i < $_POST['nb']; $i++){
 			$notes['td1'.$i]=$_POST['td1'.$i];
 			$notes['td1r'.$i]=$_POST['td1r'.$i];
@@ -177,7 +213,7 @@ class Lists extends CI_Controller
 			$notes['gradesyear'.$i]=$_POST['gradesyear'.$i];
 			$notes['student'.$i]=$_POST['student'.$i];	
 		}
-		//mise à jour des notes
+		//mise à jour des notes avec le nouveau tableau
 		$query=$this->bdd->update_grades($_POST['course_id'],$_POST['nb'],$notes);
 		$id=$_POST['course_id'];
 		

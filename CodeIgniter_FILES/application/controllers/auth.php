@@ -1,5 +1,8 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
-
+/**
+* controllers/auth : controleur pour l'authentification des utilisateurs
+* module ajouté à codeigniter
+*/
 class Auth extends CI_Controller
 {
 	function __construct()

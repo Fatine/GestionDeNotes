@@ -8,7 +8,19 @@ class Modify extends CI_Controller
 		$this->load->model('bdd');
 	}
 	
-	//ajouter un etudiant, un professeur, un administrateur
+
+/*! \fn add()
+ *  \brief pour ajouter un étudiant
+ *  \param $_POST['numero_etu'] numero etudiant de l'étudiant (non unique)
+ *  \param $_POST['title'] monsieur, madame ou mademoiselle
+ *  \param $_POST['lastname'] nom de famille de l'étudiant
+ *  \param $_POST['firstname'] prenom de l'étudiant
+ *  \param $_POST['email'] mail de l'étudiant
+ *  \param $_POST['tableName1'] nom de la table à modifier (pour peut-etre rendre la fonction générique)
+ *  \param $_POST['ue'] tableau des ues où est inscrit l'étudiant
+ *  \param $_POST['annee'] année d'inscription
+ *  \return envoie vers views/submitted qui indique que l'enregistrement s'est bien passé
+ */
 	function add(){
 		$data1 = array(
 			'numero_etu'=> $_POST['numero_etu'], 
@@ -25,6 +37,7 @@ class Modify extends CI_Controller
 //notes(course_id, student_id, td1, td1_r, td2, td2_r, exam, exam_r, moyenne_tmp, moyenne_finale, grades_year)
 		if($_POST['tableName1']=='students'){
 			$data=$_POST['ue'];
+			//on recupère l'id du dernier étudiant ajouté
 			$student_id=$this->db->insert_id();
 			
 			foreach($data as $row){
@@ -42,7 +55,15 @@ class Modify extends CI_Controller
     		$data2['body']=$this->load->view('submitted', true);
 	     $this->load->view('template', $data2);    
  	}
- 	//ajouter une ue
+
+/*! \fn add_c()
+ *  \brief pour ajouter une UE
+ *  \param $_POST['name'] nom de l'UE
+ *  \param $_POST['shortname'] nom raccourci de l'UE
+ *  \param $_POST['description'] description de l'UE
+ *  \param $_POST['tableName'] nom de la table à modifier
+ *  \return envoie vers views/submitted qui indique que l'enregistrement s'est bien passé
+ */
 	function add_c(){
 		$new = array(
 			 'name'=>$_POST['name'],
@@ -54,6 +75,20 @@ class Modify extends CI_Controller
     		$data2['body']=$this->load->view('submitted', $new, true);
 	     $this->load->view('template', $data2);    
  	}
+
+/*! \fn modify_data()
+ *  \brief pour modifier des informations
+ *  \param $_POST['id'] numero de l'étudiant ou de l'UE
+ *  \param $_POST['title'] monsieur, madame ou mademoiselle
+ *  \param $_POST['lastname'] nom de famille de l'étudiant
+ *  \param $_POST['firstname'] prenom de l'étudiant
+ *  \param $_POST['email'] mail de l'étudiant
+ *  \param $_POST['name'] nom de l'UE
+ *  \param $_POST['shortname'] nom raccourci de l'UE
+ *  \param $_POST['description'] description de l'UE
+ *  \param $_POST['tableName'] nom de la table à modifier
+ *  \return envoie vers views/submitted qui indique que l'enregistrement s'est bien passé
+ */
 	function modify_data(){
 		switch($_POST['tableName']){
 			case 'students':
@@ -78,7 +113,13 @@ class Modify extends CI_Controller
     		$data2['body']=$this->load->view('submitted', $data, true);
 	     $this->load->view('template', $data2);    
  	}
-	
+
+/*! \fn delete()
+ *  \brief pour supprimer un élément
+ *  \param $_POST['id'] numéro de l'élément  supprimer
+ *  \param $_POST['tableName'] nom de la table à modifier
+ *  \return envoie vers views/submitted qui indique que l'enregistrement s'est bien passé
+ */	
 	function delete(){	
 		$this->bdd->delete($_POST['tableName'],$_POST['id']);
 		$data['tableName']=$_POST['tableName'];
@@ -92,7 +133,7 @@ class Modify extends CI_Controller
  *  STUDENTS
  *
  */
-	//Add a student
+	/* \brief Add a student */
 	function add_student(){
  		$data['tableName1']='students';
  		$data['title']='';
@@ -108,7 +149,7 @@ class Modify extends CI_Controller
 	     $this->load->view('template', $data2);    
 	}	
 	
-	//Modify a student
+	/* \brief a student */
 	function modify_student(){
  		$query=$this->bdd->get_by_id('students', $_POST['id']);
 		$user = array(
@@ -122,55 +163,20 @@ class Modify extends CI_Controller
 		$data2['body']=$this->load->view('modify_data',$user, true);
 	     $this->load->view('template', $data2);    
 	}	
-	//Delete a student
+	
+	/* \brief Delete a student */
 	function delete_student(){
 		$data['tableName']='students';
  		$data['id']=$_POST['id'];
 		$data2['body']=$this->load->view('delete',$data, true);
 	     $this->load->view('template', $data2);    
 	}
-
-
-/*
- * 
- *  TEACHERS
- *
- */
-	//Add a teacher
-	function add_teacher(){
- 
- 		echo '<p><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/modify/add_teacher">Ajouter un autre professeur</a></p>'; 
-	}	
-	//Modify a teacher
-	function modify_teacher(){
-	}
-	//Delete a teacher
-	function delete_teacher(){
-	}
-	
-/*
- * 
- *  ADMINISTRATIVES
- *
- */
-	//Add an administrative
-	function add_administrative(){
- 
- 		echo '<p><a href="http://localhost/GestionDeNotes/CodeIgniter_FILES/index.php/modify/add_administrative">Ajouter un autre administratif</a></p>'; 
-	}
-	//Modify an administrative
-	function modify_administrative(){
-	}
-	//Delete an administrative
-	function delete_administrative(){
-	}
-
 /*
  * 
  *  COURSES
  *
  */
-	//Add a course
+	/* \brief Add a course */
 	function add_course(){
  		$data['tableName']='courses_columns';
  		$data['name']='';
@@ -179,10 +185,8 @@ class Modify extends CI_Controller
  		$data2['body']=$this->load->view('add_course',$data, true);
 	     $this->load->view('template', $data2);    
 	}
-	//Add grades
-	function add_grades(){
-	}
-	//Modify a course
+	
+	/* \brief Modify a course */
 	function modify_course(){
  		$query=$this->bdd->get_by_id('courses_columns', $_POST['id']);
 		$data = array(
@@ -195,7 +199,8 @@ class Modify extends CI_Controller
 		$data2['body']=$this->load->view('modify_data',$data, true);
 	     $this->load->view('template', $data2);    
 	}
-	//Delete a course
+
+	/* \brief Delete a course */
 	function delete_course(){
 		$data['tableName']='courses_columns';
  		$data['id']=$_POST['id'];

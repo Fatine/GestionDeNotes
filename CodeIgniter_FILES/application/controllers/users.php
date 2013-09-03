@@ -1,5 +1,9 @@
 <?php
 class users extends Controller{
+/*
+* controllers/users.php : controleur gérant les utilisateurs
+* module téléchargé
+*/
 
  function users(){
  	parent::Controller();

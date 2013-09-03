@@ -1,5 +1,9 @@
 <?php
 if ( ! defined( 'BASEPATH' )) exit( 'No direct script access allowed' );
+/*
+* controllers/courses.php : controleur de la vue courses.php, pour gérer les Unités d'Enseignement
+* @author Fatine Nakkoubi
+*/
 
 class Courses extends CI_Controller {
 
